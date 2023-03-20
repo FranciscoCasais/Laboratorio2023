@@ -2,6 +2,11 @@ package Unidad1;
 public class Persona {
     private int edad;
     private String direccion,nombre;
+    public Persona() {
+        edad=0;
+        direccion="";
+        nombre="";
+    }
     public int getEdad() { return edad; }
     public String getDireccion() { return direccion; }
     public String getNombre() { return nombre; }
