@@ -3,6 +3,7 @@ import java.util.Scanner;
 import Unidad1.*;
 public class Main {
     public static void main(String[] args) {
+        // Unidad 1:
         // Clase Libro:
         Libro libro1=new Libro();
         libro1.mostrarInfoLibro();
@@ -38,29 +39,35 @@ public class Main {
         // Unidad 2:
         // Ejercicio 1:
         ArrayList<Integer> numerosEnteros=new ArrayList<Integer>();
-        Integer numero1=1,numero2=2,numero3=3,numero4=4,numero5=5,suma=0;
-        numerosEnteros.add(numero1);
-        numerosEnteros.add(numero2);
-        numerosEnteros.add(numero3);
-        numerosEnteros.add(numero4);
-        numerosEnteros.add(numero5);
-        for(Integer numero:numerosEnteros) {
+        char respuesta;
+        int suma=0;
+        Scanner entrada1=new Scanner(System.in),entrada2=new Scanner(System.in),entrada3=new Scanner(System.in);
+        do {
+            System.out.println("¿Ingresar nuevo dato? (S/N)");
+            respuesta=entrada1.next().charAt(0);
+            if(respuesta=='S' || respuesta=='s') {
+                System.out.println("Ingresar valor entero:");
+                numerosEnteros.add(entrada2.nextInt());
+            }
+        } while(respuesta=='S' || respuesta=='s');
+        for(int numero:numerosEnteros) {
             suma+=numero;
         }
-        System.out.println(suma);
+        System.out.println("Suma de todos los valores ingresados: "+suma);
         // Ejercicio 2:
         ArrayList<String> cadenas=new ArrayList<String>();
         char letra;
         int cantidadCoincidencias=0;
-        Scanner entrada=new Scanner(System.in);
-        String cadena1="barco",cadena2="bebé",cadena3="palo",cadena4="gallo",cadena5="burocracia";
-        cadenas.add(cadena1);
-        cadenas.add(cadena2);
-        cadenas.add(cadena3);
-        cadenas.add(cadena4);
-        cadenas.add(cadena5);
+        do {
+            System.out.println("¿Ingresar nueva palabra? (S/N)");
+            respuesta=entrada1.next().charAt(0);
+            if(respuesta=='S' || respuesta=='s') {
+                System.out.println("Ingresar palabra:");
+                cadenas.add(entrada3.nextLine());
+            }
+        } while(respuesta=='S' || respuesta=='s');
         System.out.println("Ingresar letra:");
-        letra=entrada.next().charAt(0);
+        letra=entrada1.next().charAt(0);
         for(String cadena:cadenas) {
             if(cadena.charAt(0)==letra) {
                 cantidadCoincidencias++;
@@ -72,27 +79,20 @@ public class Main {
         }
         // Ejercicio 3:
         ArrayList<Persona> personas=new ArrayList<Persona>();
-        Persona persona1=new Persona(),persona2=new Persona(),persona3=new Persona(),persona4=new Persona(),persona5=new Persona();
-        persona1.setEdad(46);
-        persona2.setEdad(21);
-        persona3.setEdad(29);
-        persona4.setEdad(37);
-        persona5.setEdad(83);
-        persona1.setDireccion("Los Incas 3795");
-        persona2.setDireccion("Corrientes 9834");
-        persona3.setDireccion("Triunvirato 8023");
-        persona4.setDireccion("Lavalle 754");
-        persona5.setDireccion("9 de Julio 9221");
-        persona1.setNombre("Carlos Fernández");
-        persona2.setNombre("Julio Domínguez");
-        persona3.setNombre("Rodolfo Mondongo");
-        persona4.setNombre("Cristina de Pazzi");
-        persona5.setNombre("Alberto Perverto");
-        personas.add(persona1);
-        personas.add(persona2);
-        personas.add(persona3);
-        personas.add(persona4);
-        personas.add(persona5);
+        do {
+            System.out.println("¿Crear nueva persona? (S/N)");
+            respuesta=entrada1.next().charAt(0);
+            if(respuesta=='S' || respuesta=='s') {
+                Persona p=new Persona();
+                System.out.println("Ingresar nombre completo:");
+                p.setNombre(entrada3.nextLine());
+                System.out.println("Ingresar edad:");
+                p.setEdad(entrada2.nextInt());
+                System.out.println("Ingresar dirección:");
+                p.setDireccion(entrada3.nextLine());
+                personas.add(p);
+            }
+        } while(respuesta=='S' || respuesta=='s');
         for(Persona persona:personas) {
             if (persona.getEdad() > 30) {
                 System.out.println("\n");
