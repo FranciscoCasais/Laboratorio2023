@@ -5,21 +5,23 @@ public class Cafetera {
         cantidadActual=0;
         cantidadMaxima=1000;
     }
-    public Cafetera(double cantidadMaxima) { cantidadActual=cantidadMaxima; }
+    public Cafetera(double cantidadMaxima) { this.cantidadMaxima=cantidadMaxima; }
     public Cafetera(double cantidadActual,double cantidadMaxima) {
         if(cantidadActual>cantidadMaxima) {
-            cantidadActual=cantidadMaxima;
+            this.cantidadActual=cantidadMaxima;
+        } else {
+            this.cantidadActual=cantidadActual;
         }
-        this.cantidadActual=cantidadActual;
         this.cantidadMaxima=cantidadMaxima;
     }
     public double getCantidadActual() { return cantidadActual; }
     public double getCantidadMaxima() { return cantidadMaxima; }
     public void setCantidadActual(double cantidadActual) {
         if(cantidadActual>cantidadMaxima) {
-            cantidadActual=cantidadMaxima;
+            this.cantidadActual=cantidadMaxima;
+        } else {
+            this.cantidadActual=cantidadActual;
         }
-        this.cantidadActual=cantidadActual;
     }
     public void setCantidadMaxima(double cantidadMaxima) { this.cantidadMaxima=cantidadMaxima; }
     public void llenarCafetera() { cantidadActual=cantidadMaxima; }
