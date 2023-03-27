@@ -14,6 +14,6 @@ public class Persona {
     public void setDireccion(String direccion) { this.direccion=direccion; }
     public void setNombre(String nombre) { this.nombre=nombre; }
     public void getDatos() {
-        System.out.println("Datos de la persona:\n\nNombre completo: "+nombre+"\nEdad: "+edad+"\nDirección: "+direccion);
+        System.out.println("Datos de la persona:\nNombre completo: "+nombre+"\nEdad: "+edad+"\nDirección: "+direccion);
     }
 }
