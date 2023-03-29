@@ -38,7 +38,7 @@ public class Libro {
     public void setEditorial(String editorial) { this.editorial=editorial; }
     public void setIsbn(int isbn) { this.isbn=isbn; }
     public void setTitulo(String titulo) { this.titulo=titulo; }
-    public void mostrarInfoLibro() { System.out.println("Título: "+titulo+"\nAutor: "+autor.getNombre()+"\nEditorial: "+editorial+"\nISBN: "+isbn+"\nFecha de publicación: "+fechaPublicacion.getDia()+"/"+fechaPublicacion.getMes()+"/"+fechaPublicacion.getAnio()+"\nCantidad de páginas: "+cantidadPaginas); }
+    public void mostrarInfoLibro() { System.out.println("Título: "+titulo+"\nAutor: "+autor.getNombreCompleto()+"\nEditorial: "+editorial+"\nISBN: "+isbn+"\nFecha de publicación: "+fechaPublicacion.getDia()+"/"+fechaPublicacion.getMes()+"/"+fechaPublicacion.getAnio()+"\nCantidad de páginas: "+cantidadPaginas); }
     public boolean compararFechaPublicacion(Fecha fechaPublicacion) {
         if(this.fechaPublicacion.menorQue(fechaPublicacion)) {
             return true;

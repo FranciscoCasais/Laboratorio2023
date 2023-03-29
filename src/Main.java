@@ -33,9 +33,9 @@ public class Main {
         Persona autorCancion=new Persona();
         autorCancion.setEdad(46);
         autorCancion.setDireccion("Lavalle 7845");
-        autorCancion.setNombre("Diego Mancini");
+        autorCancion.setNombreCompleto("Diego Mancini");
         Cancion cancion2=new Cancion(autorCancion,"La Gaviota");
-        System.out.println(cancion2.getAutor().getNombre()+" - "+cancion2.getTitulo());
+        System.out.println(cancion2.getAutor().getNombreCompleto()+" - "+cancion2.getTitulo());
         // Unidad 2:
         // Ejercicio 1:
         ArrayList<Integer> numerosEnteros=new ArrayList<Integer>();
@@ -85,7 +85,7 @@ public class Main {
             if(respuesta=='S' || respuesta=='s') {
                 Persona p=new Persona();
                 System.out.println("Ingresar nombre completo:");
-                p.setNombre(entrada3.nextLine());
+                p.setNombreCompleto(entrada3.nextLine());
                 System.out.println("Ingresar edad:");
                 p.setEdad(entrada2.nextInt());
                 System.out.println("Ingresar dirección:");
