@@ -30,7 +30,7 @@ public class Alumno {
     public double mayorNota() {
         double mayorNota=0.0;
         for(double nota:notas) {
-            if(nota<mayorNota) { mayorNota=nota; }
+            if(nota>mayorNota) { mayorNota=nota; }
         }
         return mayorNota;
     }
