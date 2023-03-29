@@ -21,14 +21,14 @@ public class Alumno {
     public void setNombre(String nombre) { this.nombre=nombre; }
     public void agregarNota(double nota) { notas.add(nota); }
     public double menorNota() {
-        double menorNota=0.0;
+        double menorNota=notas.get(0);
         for(double nota:notas) {
             if(nota<menorNota) { menorNota=nota; }
         }
         return menorNota;
     }
     public double mayorNota() {
-        double mayorNota=0.0;
+        double mayorNota=notas.get(0);
         for(double nota:notas) {
             if(nota>mayorNota) { mayorNota=nota; }
         }
