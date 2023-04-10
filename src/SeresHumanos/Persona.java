@@ -1,17 +1,15 @@
 package SeresHumanos;
 import Unidad1.Fecha;
-public class Persona {
-    private Fecha fechaNacimiento;
-    private String direccion, nombreCompleto;
+public class Persona extends SerHumano {
+    private String direccion;
 
     public Persona() {
-        fechaNacimiento=new Fecha();
+        super();
         direccion = "";
-        nombreCompleto = "";
     }
 
     public Fecha getFechaNacimiento() {
-        return fechaNacimiento;
+        return super.fechaNacimiento;
     }
 
     public String getDireccion() {
@@ -19,11 +17,11 @@ public class Persona {
     }
 
     public String getNombreCompleto() {
-        return nombreCompleto;
+        return super.nombreCompleto;
     }
 
-    public void setFechaNacimiento(int edad) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFechaNacimiento(Fecha fechaNacimiento) {
+        super.fechaNacimiento = fechaNacimiento;
     }
 
     public void setDireccion(String direccion) {
@@ -31,7 +29,7 @@ public class Persona {
     }
 
     public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+        super.nombreCompleto = nombreCompleto;
     }
 
     public void getDatos() {

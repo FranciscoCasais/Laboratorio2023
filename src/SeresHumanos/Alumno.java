@@ -13,11 +13,11 @@ public class Alumno extends SerHumano {
     }
 
     public Fecha getFechaNacimiento() {
-        return super.getFechaNacimiento();
+        return super.fechaNacimiento;
     }
 
     public String getNombreCompleto() {
-        return super.getNombreCompleto();
+        return super.nombreCompleto;
     }
 
     public void setNotas(ArrayList<Double> notas, int posicion) {
