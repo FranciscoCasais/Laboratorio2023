@@ -1,5 +1,4 @@
 package SeresHumanos;
-import Unidad1.Fecha;
 import SeresHumanos.*;
 public class Empleado {
     protected String nombreCompleto;
