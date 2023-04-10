@@ -1,4 +1,4 @@
-package Unidad2;
+package SeresHumanos;
 import Unidad1.Fecha;
 public class Jugador {
     private boolean capitan;

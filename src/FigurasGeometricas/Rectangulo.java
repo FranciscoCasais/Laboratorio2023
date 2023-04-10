@@ -1,4 +1,4 @@
-package Unidad1;
+package FigurasGeometricas;
 public class Rectangulo {
     private double altura, base;
 

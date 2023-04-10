@@ -1,4 +1,6 @@
 package Unidad2;
+import SeresHumanos.Jugador;
+
 import java.util.ArrayList;
 public class Equipo {
     ArrayList<Boolean> disponibilidadHoraria;

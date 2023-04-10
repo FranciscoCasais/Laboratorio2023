@@ -1,4 +1,7 @@
 package Unidad1;
+
+import SeresHumanos.Persona;
+
 public class Cancion {
     private Persona autor;
     private String titulo;

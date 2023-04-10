@@ -1,32 +1,23 @@
-package Unidad2;
+package SeresHumanos;
 import java.util.ArrayList;
 import Unidad1.Fecha;
-public class Alumno {
+import Unidad2.Materia;
+public class Alumno extends SerHumano {
     private ArrayList<Materia> materias;
-    private Fecha fechaNacimiento;
-    private String apellido, nombre;
-
     public Alumno() {
+        super();
         materias = new ArrayList<Materia>();
-        fechaNacimiento = new Fecha();
-        apellido = "";
-        nombre = "";
     }
-
     public ArrayList<Double> getNotas(int posicion) {
         return materias.get(posicion).getNotas();
     }
 
     public Fecha getFechaNacimiento() {
-        return fechaNacimiento;
+        return super.getFechaNacimiento();
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
+    public String getNombreCompleto() {
+        return super.getNombreCompleto();
     }
 
     public void setNotas(ArrayList<Double> notas, int posicion) {
@@ -34,15 +25,11 @@ public class Alumno {
     }
 
     public void setFechaNacimiento(Fecha fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        super.fechaNacimiento = fechaNacimiento;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreCompleto(String nombreCompleto) {
+        super.nombreCompleto = nombreCompleto;
     }
 
     public void agregarNota(double nota, int posicion) {

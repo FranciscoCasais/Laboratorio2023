@@ -1,4 +1,4 @@
-package Unidad1;
+package FigurasGeometricas;
 import java.lang.Math;
 public class Circulo {
     private double radio;

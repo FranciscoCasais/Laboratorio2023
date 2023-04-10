@@ -1,4 +1,4 @@
-package Unidad1;
+package Objetos;
 public class Coche {
     private double velocidad;
     private String color, marca, modelo;

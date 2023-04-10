@@ -1,16 +1,17 @@
-package Unidad1;
+package SeresHumanos;
+import Unidad1.Fecha;
 public class Persona {
-    private int edad;
+    private Fecha fechaNacimiento;
     private String direccion, nombreCompleto;
 
     public Persona() {
-        edad = 0;
+        fechaNacimiento=new Fecha();
         direccion = "";
         nombreCompleto = "";
     }
 
-    public int getEdad() {
-        return edad;
+    public Fecha getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public String getDireccion() {
@@ -21,8 +22,8 @@ public class Persona {
         return nombreCompleto;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setFechaNacimiento(int edad) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public void setDireccion(String direccion) {
@@ -34,6 +35,6 @@ public class Persona {
     }
 
     public void getDatos() {
-        System.out.println("Datos de la persona:\nNombre completo: " + nombreCompleto + "\nEdad: " + edad + "\nDirección: " + direccion);
+        System.out.println("Datos de la persona:\nNombre completo: " + nombreCompleto + "\nFecha de nacimiento: " + fechaNacimiento.getDia()+"/"+fechaNacimiento.getMes()+"/"+fechaNacimiento.getAnio() + "\nDirección: " + direccion);
     }
 }

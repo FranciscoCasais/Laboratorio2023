@@ -1,4 +1,8 @@
-package Unidad1;
+package Objetos;
+
+import Unidad1.Fecha;
+import SeresHumanos.Persona;
+
 public class Libro {
     private int cantidadPaginas;
     private Fecha fechaPublicacion;
