@@ -32,11 +32,11 @@ public class Empresa {
         }
         System.out.println("El tipo de vehículo del cual la empresa posee una mayor cantidad es: ");
         if(cantidadAutos>cantidadBicicletas && cantidadAutos>cantidadCamionetas) {
-            System.out.println("auto (cantidad: " + cantidadAutos + ")");
+            System.out.println("auto (cantidad: " + cantidadAutos + " unidades)");
         } else if(cantidadBicicletas>cantidadAutos && cantidadBicicletas>cantidadCamionetas) {
-            System.out.println("bicicleta (cantidad: " + cantidadBicicletas + ")");
+            System.out.println("bicicleta (cantidad: " + cantidadBicicletas + " unidades)");
         } else {
-            System.out.println("camioneta (cantidad: " + cantidadCamionetas + ")");
+            System.out.println("camioneta (cantidad: " + cantidadCamionetas + " unidades)");
         }
     }
 }
