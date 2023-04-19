@@ -1,10 +1,8 @@
 package SeresHumanos;
 import SeresHumanos.*;
-public class Empleado {
-    protected String nombreCompleto;
-    public Empleado(String nombreCompleto) { this.nombreCompleto=nombreCompleto; }
-    public String getNombreCompleto() { return nombreCompleto; }
-
-    public String toString() { return "Empleado "+nombreCompleto; }
-    public void setNombreCompleto(String nombreCompleto) { this.nombreCompleto=nombreCompleto; }
+public class Empleado extends Persona {
+    private long DNI;
+    private String pais,telefono;
+    public Empleado() { super(); }
+    public String toString() { return "Empleado "+super.nombre+" "+super.apellido; }
 }

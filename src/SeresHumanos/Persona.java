@@ -1,38 +1,29 @@
 package SeresHumanos;
-import Unidad1.Fecha;
-public class Persona extends SerHumano {
-    private String direccion;
-
+import Tiempo.Fecha;
+public class Persona {
+    protected Fecha fechaNacimiento;
+    protected String apellido,direccion,nombre;
     public Persona() {
-        super();
-        direccion = "";
+        fechaNacimiento=new Fecha();
+        apellido="";
+        direccion="";
+        nombre="";
     }
-
     public Fecha getFechaNacimiento() {
-        return super.fechaNacimiento;
+        return fechaNacimiento;
     }
-
+    public String getApellido() { return apellido; }
     public String getDireccion() {
         return direccion;
     }
-
-    public String getNombreCompleto() {
-        return super.nombreCompleto;
-    }
-
+    public String getNombre() { return nombre; }
     public void setFechaNacimiento(Fecha fechaNacimiento) {
-        super.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento=fechaNacimiento;
     }
-
+    public void setApellido(String apellido) { this.apellido=apellido; }
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion=direccion;
     }
-
-    public void setNombreCompleto(String nombreCompleto) {
-        super.nombreCompleto = nombreCompleto;
-    }
-
-    public void getDatos() {
-        System.out.println("Datos de la persona:\nNombre completo: " + nombreCompleto + "\nFecha de nacimiento: " + fechaNacimiento.getDia()+"/"+fechaNacimiento.getMes()+"/"+fechaNacimiento.getAnio() + "\nDirección: " + direccion);
-    }
+    public void setNombre(String nombre) { this.nombre=nombre; }
+    public void getDatos() { System.out.println("Datos de la persona:\nNombre y apellido: "+nombre+" "+apellido+"\nFecha de nacimiento: "+fechaNacimiento.getDia()+"/"+fechaNacimiento.getMes()+"/"+fechaNacimiento.getAnio()+"\nDirección: "+direccion); }
 }
