@@ -95,7 +95,7 @@ public class TiendaElectronica {
     }
     public static int hallarProducto(ArrayList<Componente> productos,Componente producto) {
         for(int i=0;i<productos.size();i++) {
-            if(productos.get(i)==producto) { return i; }
+            if(productos.get(i).equals(producto)) { return i; }
         }
         return -1;
     }
