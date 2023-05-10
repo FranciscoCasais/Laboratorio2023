@@ -1,14 +1,15 @@
 package ObjetosFisicos.Componentes;
+import ObjetosAbstractos.Sistemas.Tecnologia;
 public class Televisor extends Multimedia {
     private int resolucion;
-    private String tecnologia;
+    private Tecnologia tecnologia;
     public Televisor() {
         super();
         resolucion=1080;
-        tecnologia="FullHD";
+        tecnologia=null;
     }
     public int getResolucion() { return resolucion; }
-    public String getTecnologia() { return tecnologia; }
+    public Tecnologia getTecnologia() { return tecnologia; }
     public void setResolucion(int resolucion) { this.resolucion=resolucion; }
-    public void setTecnologia(String tecnologia) { this.tecnologia=tecnologia; }
+    public void setTecnologia(Tecnologia tecnologia) { this.tecnologia=tecnologia; }
 }

@@ -1,4 +1,4 @@
-package ObjetosAbstractos.Procesos;
+package ObjetosAbstractos.Sistemas;
 import ObjetosFisicos.Componentes.Componente;
 import ObjetosFisicos.Componentes.EquipoSonido;
 import ObjetosFisicos.Componentes.Portatil;
@@ -159,11 +159,26 @@ public class TiendaElectronica {
         System.out.println("\nSe modificó el nombre del fabricante.");
         return nuevoNombreFabricante;
     }
-    public static String modificarTecnologia(Scanner entrada) {
-        String nuevaTecnologia;
-        System.out.println("\nIngrese la nueva tecnología:");
-        entrada.nextLine();
-        nuevaTecnologia=entrada.nextLine();
+    public static Tecnologia modificarTecnologia(Scanner entrada) {
+        int respuesta;
+        Tecnologia nuevaTecnologia;
+        System.out.println("\nIngrese la nueva tecnología:\n\n1. FullHD\n2. UltraHD\n3. 4K");
+        respuesta=entrada.nextInt();
+        while(respuesta<1 || respuesta>3) {
+            System.out.println("\nDígito no válido, intente nuevamente:");
+            respuesta=entrada.nextInt();
+        }
+        switch(respuesta) {
+            case 1:
+                nuevaTecnologia=Tecnologia.FULL;
+                break;
+            case 2:
+                nuevaTecnologia=Tecnologia.ULTRA;
+                break;
+            default:
+                nuevaTecnologia=Tecnologia.CUATROK;
+                break;
+        }
         System.out.println("\nSe modificó la tecnología.");
         return nuevaTecnologia;
     }

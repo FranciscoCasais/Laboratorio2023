@@ -1,23 +1,23 @@
 package ObjetosAbstractos.Grupos;
+import ObjetosAbstractos.Otros.Turno;
 import SeresHumanos.Jugador;
-
 import java.util.ArrayList;
 public class Equipo {
-    ArrayList<Boolean> disponibilidadHoraria;
+    Turno turno;
     ArrayList<Jugador> jugadores;
     private String barrioProcedencia,nombre;
     public Equipo() {
-        disponibilidadHoraria=new ArrayList<>();
+        turno=null;
         jugadores=new ArrayList<>();
         barrioProcedencia="";
         nombre="";
     }
-    public ArrayList<Boolean> getDisponibilidadHoraria() { return disponibilidadHoraria; }
+    public Turno getTurno() { return turno; }
     public ArrayList<Jugador> getJugadores() { return jugadores; }
     public String getBarrioProcedencia() { return barrioProcedencia; }
     public String getNombre() { return nombre; }
     public void setJugadores(ArrayList<Jugador> jugadores) { this.jugadores=jugadores; }
-    public void setDisponibilidadHoraria(ArrayList<Boolean> disponibilidadHoraria) { this.disponibilidadHoraria=disponibilidadHoraria; }
+    public void setTurno(Turno turno) { this.turno=turno; }
     public void setBarrioProcedencia(String barrioProcedencia) { this.barrioProcedencia=barrioProcedencia; }
     public void setNombre(String nombre) { this.nombre=nombre; }
 }
