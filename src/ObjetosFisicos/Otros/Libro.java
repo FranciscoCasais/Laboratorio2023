@@ -2,20 +2,21 @@ package ObjetosFisicos.Otros;
 import Tiempo.Fecha;
 import SeresHumanos.Persona;
 public class Libro {
-    private int cantidadPaginas;
+    private Editorial editorial;
     private Fecha fechaPublicacion;
+    private int cantidadPaginas;
     private long isbn;
     private Persona autor;
-    private String editorial, titulo;
+    private String titulo;
     public Libro() {
         cantidadPaginas=100;
         fechaPublicacion=new Fecha(2023, 15, 3);
         autor=new Persona();
-        editorial="Planeta";
+        editorial=Editorial.KAPELUSZ;
         isbn=237982993;
         titulo="El hechizo del agua";
     }
-    public Libro(int cantidadPaginas,long ISBN,Fecha fechaPublicacion,String editorial,String titulo) {
+    public Libro(int cantidadPaginas,long ISBN,Fecha fechaPublicacion,Editorial editorial,String titulo) {
         this.cantidadPaginas=cantidadPaginas;
         this.fechaPublicacion=fechaPublicacion;
         this.editorial=editorial;
@@ -34,7 +35,7 @@ public class Libro {
     public Persona getAutor() {
         return autor;
     }
-    public String getEditorial() {
+    public Editorial getEditorial() {
         return editorial;
     }
     public long getIsbn() {
@@ -52,7 +53,7 @@ public class Libro {
     public void setAutor(Persona autor) {
         this.autor=autor;
     }
-    public void setEditorial(String editorial) {
+    public void setEditorial(Editorial editorial) {
         this.editorial=editorial;
     }
     public void setIsbn(int isbn) {
