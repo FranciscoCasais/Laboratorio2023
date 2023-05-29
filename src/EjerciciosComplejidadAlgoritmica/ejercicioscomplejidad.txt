@@ -21,14 +21,10 @@ b) El tiempo de ejecución del programa en el peor caso es de O(n^2).
 c) Resuelto en el archivo "ejercicio3c.java"
 
 
-Ejercicio 4: (10n+9)*100+2 = O(n).
-
-Ejercicio 5: (log2 n)*5+5 = O(log2 n).
-
+Ejercicio 4: (10n+9)*100+2 = O(n)
+Ejercicio 5: (log2 n)*5+5 = O(log2 n)
 Ejercicio 6: Resuelto en el archivo "ejercicio6.java"
-
 Ejercicio 7: Resuelto en el archivo "ejercicio7.java"
-
 Ejercicio 8: Resuelto en el archivo "ejercicio8.java"
-
 Ejercicio 9: Resuelto en el archivo "ejercicio9.java"
+Ejercicio 10: Resuelto en el archivo "ejercicio10.java"
