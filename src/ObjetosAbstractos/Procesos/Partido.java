@@ -1,5 +1,4 @@
 package ObjetosAbstractos.Procesos;
-
 public class Partido {
     private int equipo1,equipo2;
     private String equipo1Nombre,equipo2Nombre;

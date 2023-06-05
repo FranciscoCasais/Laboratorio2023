@@ -3,7 +3,6 @@ import SeresHumanos.Persona;
 import Tiempo.Fecha;
 import Tiempo.Hora;
 import ObjetosFisicos.Otros.Plato;
-
 public class Pedido {
     private boolean entregado;
     private Fecha fechaCreacion;

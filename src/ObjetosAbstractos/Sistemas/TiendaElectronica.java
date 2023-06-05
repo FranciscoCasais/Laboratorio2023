@@ -65,9 +65,7 @@ public class TiendaElectronica {
                             ((EquipoSonido)productos.get(indice)).setBluetooth(true);
                             System.out.println("\nSe modificó el uso de bluetooth del equipo de falso a verdadero.");
                         }
-                    } else {
-                        ((Televisor)productos.get(indice)).setResolucion(modificarResolucion(entrada));
-                    }
+                    } else { ((Televisor)productos.get(indice)).setResolucion(modificarResolucion(entrada)); }
                     break;
                 case 6:
                     ((Televisor)productos.get(indice)).setTecnologia(modificarTecnologia(entrada));

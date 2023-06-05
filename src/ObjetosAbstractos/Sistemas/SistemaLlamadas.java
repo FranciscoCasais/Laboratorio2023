@@ -22,9 +22,7 @@ public class SistemaLlamadas {
         for(Empleado empleado:registroEmpleados) {
             int cantidadLlamadas=0;
             for(Llamada llamada:registroLlamadas) {
-                if(llamada.getOrigen()==empleado) {
-                    cantidadLlamadas++;
-                }
+                if(llamada.getOrigen()==empleado) { cantidadLlamadas++; }
             }
             System.out.println("\n"+empleado.getApellido()+", "+empleado.getNombre()+" ("+empleado.getDNI()+"):\n"+cantidadLlamadas+" llamadas realizadas");
         }

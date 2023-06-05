@@ -1,7 +1,6 @@
 package ObjetosAbstractos.Sistemas;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import ObjetosAbstractos.Procesos.Pedido;
 import ObjetosFisicos.Otros.Plato;
 import SeresHumanos.Alumno;
@@ -9,7 +8,6 @@ import SeresHumanos.Persona;
 import SeresHumanos.Profesor;
 import Tiempo.Fecha;
 import Tiempo.Hora;
-
 public class SistemaPedidos {
     private ArrayList<Pedido> pedidos;
     private static ArrayList<Plato> platos;

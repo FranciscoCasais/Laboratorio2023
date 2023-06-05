@@ -6,7 +6,6 @@ import ObjetosFisicos.Componentes.Salida;
 import ObjetosFisicos.MetodosPago.Efectivo;
 import ObjetosFisicos.MetodosPago.Tarjeta;
 import SeresHumanos.Cliente;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Compra {
@@ -26,12 +25,12 @@ public class Compra {
     public boolean componentesMinimos() {
         boolean cpu=false,entrada=false,salida=false;
         for(Componente componente:carrito) {
-            if(componente instanceof CPU) { cpu=true;
-            } else if(componente instanceof Entrada) { entrada=true;
-            } else if(componente instanceof Salida) { salida=true; }
+            if(componente instanceof CPU) { cpu=true; }
+            else if(componente instanceof Entrada) { entrada=true; }
+            else if(componente instanceof Salida) { salida=true; }
         }
-        if(cpu && entrada && salida) { return true;
-        } else { return false; }
+        if(cpu && entrada && salida) { return true; }
+        else { return false; }
     }
     public boolean cpuIncluido(ArrayList<Componente> componentesCompra) {
         for(Componente componente:componentesCompra) { if(componente instanceof CPU) { return true; } }

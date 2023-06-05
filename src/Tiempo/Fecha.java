@@ -1,13 +1,11 @@
 package Tiempo;
 public class Fecha {
     private int anio, dia, mes;
-
     public Fecha() {
         anio = 2023;
         dia = 1;
         mes = 1;
     }
-
     public void valida() {
         if (anio > 2023) {
             anio = 1900;
@@ -89,7 +87,7 @@ public class Fecha {
         return false;
     }
 
-    public int diasMes(int mes) {
+    public int diasMes() {
         switch (mes) {
             case 1:
             case 3:
