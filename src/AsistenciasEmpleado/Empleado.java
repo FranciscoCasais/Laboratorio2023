@@ -1,7 +1,7 @@
 package AsistenciasEmpleado;
-import Cosas.Fecha;
-import Humanos.Persona;
-import Cosas.Dia;
+import Tiempo.Fecha;
+import SeresHumanos.Persona;
+import Tiempo.Dia;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 import java.util.HashSet;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
     private String telefono;
     private HashSet<Dia> diasLaborales;
     private HashSet<LocalDateTime> fechaHoraIngreso;

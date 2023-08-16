@@ -1,7 +1,7 @@
 package ControlDeAlturaPeso;
 
-import Cosas.Fecha;
-import Humanos.Persona;
+import Tiempo.Fecha;
+import SeresHumanos.Persona;
 
 import java.util.HashSet;
 import java.time.LocalDate;

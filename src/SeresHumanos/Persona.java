@@ -8,6 +8,11 @@ public class Persona {
         apellido="";
         nombre="";
     }
+    public Persona(String nombre,String apellido,Fecha fechaNacimiento) {
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.fechaNacimiento=fechaNacimiento;
+    }
     public Fecha getFechaNacimiento() {
         return fechaNacimiento;
     }

@@ -1,6 +1,6 @@
 package FamiliaCalorias;
 
-import Humanos.Persona;
+import SeresHumanos.Persona;
 
 import java.util.ArrayList;
 import java.util.HashSet;

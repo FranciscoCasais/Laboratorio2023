@@ -1,13 +1,13 @@
 package EmpresaTelefonica;
-
-import Humanos.Persona;
+import Tiempo.Fecha;
+import SeresHumanos.Persona;
 
 public class Empleado extends Persona {
     private String numTelefono;
     private String pais;
 
     public Empleado(String nombre, String apellido, int dni, String numTelefono, String pais) {
-        super(nombre, apellido, dni);
+        super(nombre, apellido, new Fecha());
         this.numTelefono = numTelefono;
         this.pais = pais;
     }

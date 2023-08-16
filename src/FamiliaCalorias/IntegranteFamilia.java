@@ -1,6 +1,6 @@
 package FamiliaCalorias;
-import Cosas.Fecha;
-import Humanos.Persona;
+import Tiempo.Fecha;
+import SeresHumanos.Persona;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class IntegranteFamilia extends Persona {
     private ArrayList<Plato> platos;
 
     public IntegranteFamilia(String nombre, Fecha fechaNacimiento, ArrayList<Plato> platos) {
-        super(nombre, fechaNacimiento);
+        super(nombre,"kjansdj", fechaNacimiento);
         this.platos = platos;
     }
     public IntegranteFamilia() {
