@@ -1,6 +1,6 @@
 package ABM_Mascotas;
 import SeresHumanos.Persona;
-public abstract class Pajaro extends Mascota {
+public abstract class Pajaro extends Terrestre {
     public Pajaro() { super(); }
-    public Pajaro(Persona duenio,String nombre) { super(duenio,nombre); }
+    public Pajaro(int alegria,Persona duenio,String nombre) { super(alegria,duenio,nombre); }
 }

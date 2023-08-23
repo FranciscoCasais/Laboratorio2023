@@ -2,7 +2,15 @@ package ABM_Mascotas;
 import SeresHumanos.Persona;
 public class NoCantor extends Pajaro {
     public NoCantor() { super(); }
-    public NoCantor(Persona duenio,String nombre) { super(duenio,nombre); }
+    public NoCantor(int alegria,Persona duenio,String nombre) { super(alegria,duenio,nombre); }
     @Override
-    String saludo() { return "pio"; }
+    public String tipoAnimal() { return "No cantor"; }
+    @Override
+    String saludo() {
+        String saludo="";
+        for(int i=0;i<alegria;i++) saludo+="pio ";
+        saludo=saludo.substring(0,saludo.length()-1);
+        if(alegria>1) this.setAlegria(alegria-1);
+        return saludo;
+    }
 }
