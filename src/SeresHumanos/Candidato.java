@@ -2,10 +2,10 @@ package SeresHumanos;
 import java.util.*;
 import SistemaElecciones.*;
 public class Candidato extends Persona {
-    int dni;
-    HashMap<Provincia,Integer> votosPorProvincia;
-    HashMap<Tema,HashSet<String>> propuestasPorTema;
-    Partido partidoPolitico;
+    private int dni;
+    private HashMap<Provincia,Integer> votosPorProvincia;
+    private HashMap<Tema,HashSet<String>> propuestasPorTema;
+    private Partido partidoPolitico;
     public int getDni() { return dni; }
     public HashMap<Provincia,Integer> getVotosPorProvincia() { return votosPorProvincia; }
     public HashMap<Tema,HashSet<String>> getPropuestasPorTema() { return propuestasPorTema; }

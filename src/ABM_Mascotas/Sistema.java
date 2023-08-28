@@ -88,13 +88,25 @@ public class Sistema {
         }
     }
     public void altaMascota(Fecha fechaNacimiento,Persona duenio,String canto,String nombre,Tipo tipo) throws ClassNotFoundException,IllegalAccessException,InstantiationException {
-        Class clase=Class.forName(tipo.getNombreClase());
-        Mascota nuevaMascota=(Mascota)clase.newInstance();
-        if(nuevaMascota instanceof Cantor) nuevaMascota=new Cantor(fechaNacimiento,1,duenio,canto,nombre);
-        else if(nuevaMascota instanceof Gato) nuevaMascota=new Gato(fechaNacimiento,1,duenio,nombre);
-        else if(nuevaMascota instanceof NoCantor) nuevaMascota=new NoCantor(fechaNacimiento,1,duenio,nombre);
-        else nuevaMascota=new Perro(fechaNacimiento,1,duenio,nombre);
-        mascotas.add(nuevaMascota);
+        if(tipo.getNombreClase()=="Cantor") {
+            Cantor cantor=new Cantor(fechaNacimiento,1,duenio,canto,nombre);
+            mascotas.add(cantor);
+        }
+        else if(tipo.getNombreClase()=="Gato") {
+            Gato gato=new Gato(fechaNacimiento,1,duenio,nombre);
+            mascotas.add(gato);
+        }
+        else if(tipo.getNombreClase()=="NoCantor") {
+            NoCantor noCantor=new NoCantor(fechaNacimiento,1,duenio,nombre);
+            mascotas.add(noCantor);
+        }
+        else if(tipo.getNombreClase()=="Perro") {
+            Perro perro=new Perro(fechaNacimiento,1,duenio,nombre);
+            mascotas.add(perro);
+        } else {
+            Pez pez=new Pez(fechaNacimiento,duenio,nombre);
+            mascotas.add(pez);
+        }
     }
     public void altaMascotaMain() throws ClassNotFoundException,IllegalAccessException,InstantiationException {
         Scanner entrada=new Scanner(System.in);
@@ -288,22 +300,27 @@ public class Sistema {
             case 1:
                 Perro perro=new Perro(fechaNacimientoMascota,1,duenio,nombreMascota);
                 Perro nuevoPerro= (Perro) modificarAtributos(perro);
+                this.modificarMascota(nuevoPerro,perro);
                 break;
             case 2:
                 Gato gato=new Gato(fechaNacimientoMascota,1,duenio,nombreMascota);
                 Gato nuevoGato= (Gato) modificarAtributos(gato);
+                this.modificarMascota(nuevoGato,gato);
                 break;
             case 3:
                 Cantor cantor=new Cantor(fechaNacimientoMascota,1,duenio,canto,nombreMascota);
                 Cantor nuevoCantor= (Cantor) modificarAtributos(cantor);
+                this.modificarMascota(nuevoCantor,cantor);
                 break;
             case 4:
                 NoCantor noCantor=new NoCantor(fechaNacimientoMascota,1,duenio,nombreMascota);
                 NoCantor nuevoNoCantor= (NoCantor) modificarAtributos(noCantor);
+                this.modificarMascota(nuevoNoCantor,noCantor);
                 break;
             case 5:
                 Pez pez=new Pez(fechaNacimientoMascota,duenio,nombreMascota);
                 Pez nuevoPez= (Pez) modificarAtributos(pez);
+                this.modificarMascota(nuevoPez,pez);
                 break;
         }
     }
