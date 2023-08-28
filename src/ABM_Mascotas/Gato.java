@@ -1,8 +1,9 @@
 package ABM_Mascotas;
 import SeresHumanos.Persona;
+import Tiempo.Fecha;
 public class Gato extends Terrestre {
     public Gato() { super(); }
-    public Gato(int alegria,Persona duenio,String nombre) { super(alegria,duenio,nombre); }
+    public Gato(Fecha fechaNacimiento,int alegria,Persona duenio,String nombre) { super(fechaNacimiento,alegria,duenio,nombre); }
     @Override
     public String tipoAnimal() { return "Gato"; }
     @Override

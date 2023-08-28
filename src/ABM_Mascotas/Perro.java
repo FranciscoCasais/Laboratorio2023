@@ -1,8 +1,9 @@
 package ABM_Mascotas;
 import SeresHumanos.Persona;
+import Tiempo.Fecha;
 public class Perro extends Terrestre {
     public Perro() { super(); }
-    public Perro(int alegria,Persona duenio,String nombre) { super(alegria,duenio,nombre); }
+    public Perro(Fecha fechaNacimiento,int alegria,Persona duenio,String nombre) { super(fechaNacimiento,alegria,duenio,nombre); }
     @Override
     public String tipoAnimal() { return "Perro"; }
     @Override

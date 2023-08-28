@@ -6,10 +6,12 @@ public abstract class Mascota {
     private Persona duenio;
     private String nombre;
     public Mascota() {
+        fechaNacimiento=new Fecha();
         this.duenio=new Persona();
         nombre="";
     }
-    public Mascota(Persona duenio,String nombre) {
+    public Mascota(Fecha fechaNacimiento,Persona duenio,String nombre) {
+        this.fechaNacimiento=fechaNacimiento;
         this.duenio =duenio;
         this.nombre=nombre;
     }

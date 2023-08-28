@@ -1,6 +1,6 @@
 package ABM_Mascotas;
 public enum Tipo {
-    GATO("Gato"),PAJAROCANTOR("Cantor"),PAJARONOCANTOR("NoCantor"),PERRO("Perro");
+    GATO("Gato"),PAJAROCANTOR("Cantor"),PAJARONOCANTOR("NoCantor"),PERRO("Perro"),PEZ("Pez");
     private String nombreClase;
     Tipo(String nombreClase) { this.nombreClase=nombreClase; }
     public String getNombreClase() { return nombreClase; }

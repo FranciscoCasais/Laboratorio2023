@@ -1,10 +1,11 @@
 package ABM_Mascotas;
 import SeresHumanos.Persona;
+import Tiempo.Fecha;
 public class Cantor extends Pajaro {
     private String canto;
     public Cantor() { super(); }
-    public Cantor(int alegria,Persona duenio,String canto,String nombre) {
-        super(alegria,duenio,nombre);
+    public Cantor(Fecha fechaNacimiento,int alegria,Persona duenio,String canto,String nombre) {
+        super(fechaNacimiento,alegria,duenio,nombre);
         this.canto=canto;
     }
     public String getCanto() { return canto; }

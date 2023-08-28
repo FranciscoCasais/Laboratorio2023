@@ -1,8 +1,9 @@
 package ABM_Mascotas;
 import SeresHumanos.Persona;
+import Tiempo.Fecha;
 public class NoCantor extends Pajaro {
     public NoCantor() { super(); }
-    public NoCantor(int alegria,Persona duenio,String nombre) { super(alegria,duenio,nombre); }
+    public NoCantor(Fecha fechaNacimiento,int alegria,Persona duenio,String nombre) { super(fechaNacimiento,alegria,duenio,nombre); }
     @Override
     public String tipoAnimal() { return "No cantor"; }
     @Override
