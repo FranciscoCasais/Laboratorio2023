@@ -1,11 +1,25 @@
 package SeresHumanos;
 import java.util.*;
 import SistemaElecciones.*;
+import Tiempo.Fecha;
 public class Candidato extends Persona {
     private int dni;
     private HashMap<Provincia,Integer> votosPorProvincia;
     private HashMap<Tema,HashSet<String>> propuestasPorTema;
     private Partido partidoPolitico;
+    public Candidato() {
+        super();
+        votosPorProvincia=new HashMap<>();
+        propuestasPorTema=new HashMap<>();
+        partidoPolitico=Partido.FRENTECONST;
+    }
+    public Candidato(Fecha fechaNacimiento,int dni,HashMap<Provincia,Integer> votosPorProvincia,HashMap<Tema,HashSet<String>> propuestasPorTema,Partido partidoPolitico,String apellido,String nombre) {
+        super(nombre,apellido,fechaNacimiento);
+        this.dni=dni;
+        this.votosPorProvincia=votosPorProvincia;
+        this.propuestasPorTema=propuestasPorTema;
+        this.partidoPolitico=partidoPolitico;
+    }
     public int getDni() { return dni; }
     public HashMap<Provincia,Integer> getVotosPorProvincia() { return votosPorProvincia; }
     public HashMap<Tema,HashSet<String>> getPropuestasPorTema() { return propuestasPorTema; }

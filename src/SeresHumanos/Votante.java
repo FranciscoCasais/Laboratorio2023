@@ -46,10 +46,10 @@ public class Votante extends Persona {
                     entrada.nextLine();
                 }
                 if(respuesta!=i) {
+                    Partido partidoSeleccionado=idPartidos.get(respuesta);
                     do {
-                        Partido partidoSeleccionado=idPartidos.get(respuesta);
                         deseleccionar=false;
-                        System.out.print("Seleccionó a "+partidoSeleccionado.getRepresentante().getNombre()+partidoSeleccionado.getRepresentante().getApellido()+", del partido "+partidoSeleccionado.getNombre()+"\n\n1. Ver propuestas\n2. Votar\n3. Atrás\n\nIngrese el dígito correspondiente: ");
+                        System.out.print("Seleccionó a "+partidoSeleccionado.getRepresentante().getNombre()+" "+partidoSeleccionado.getRepresentante().getApellido()+", del partido "+partidoSeleccionado.getNombre()+"\n\n1. Ver propuestas\n2. Votar\n3. Atrás\n\nIngrese el dígito correspondiente: ");
                         respuesta=entrada.nextInt();
                         entrada.nextLine();
                         while(respuesta<1 || respuesta>3) {
