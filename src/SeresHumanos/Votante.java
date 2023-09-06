@@ -33,7 +33,7 @@ public class Votante extends Persona {
                 System.out.println("Seleccione al candidato:\n");
                 for(Partido partido:partidos) {
                     if(entrar) idPartidos.put(i,partido);
-                    System.out.println(i+" "+partido.getRepresentante().getNombre()+" "+partido.getRepresentante().getApellido()+", "+partido.getNombre());
+                    System.out.println(i+". "+partido.getRepresentante().getNombre()+" "+partido.getRepresentante().getApellido()+", "+partido.getNombre());
                     i++;
                 }
                 entrar=false;
@@ -65,7 +65,9 @@ public class Votante extends Persona {
                                 entrada.nextLine();
                                 break;
                             case 2:
-                                partidoSeleccionado.getRepresentante().getVotosPorProvincia().put(provincia,partidoSeleccionado.getRepresentante().getVotosPorProvincia().get(provincia)+1);
+                                int nuevaCantidadVotos=partidoSeleccionado.getRepresentante().getVotosPorProvincia().get(provincia)+1;
+                                partidoSeleccionado.getRepresentante().getVotosPorProvincia().remove(provincia);
+                                partidoSeleccionado.getRepresentante().getVotosPorProvincia().put(provincia,nuevaCantidadVotos);
                                 voto=!voto;
                                 deseleccionar=true;
                                 terminar=true;

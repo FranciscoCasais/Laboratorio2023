@@ -13,12 +13,37 @@ public class Candidato extends Persona {
         propuestasPorTema=new HashMap<>();
         partidoPolitico=Partido.FRENTECONST;
     }
-    public Candidato(Fecha fechaNacimiento,int dni,HashMap<Provincia,Integer> votosPorProvincia,HashMap<Tema,HashSet<String>> propuestasPorTema,Partido partidoPolitico,String apellido,String nombre) {
+    public Candidato(Fecha fechaNacimiento,int dni,HashMap<Tema,HashSet<String>> propuestasPorTema,Partido partidoPolitico,String apellido,String nombre) {
         super(nombre,apellido,fechaNacimiento);
         this.dni=dni;
-        this.votosPorProvincia=votosPorProvincia;
         this.propuestasPorTema=propuestasPorTema;
         this.partidoPolitico=partidoPolitico;
+        HashMap<Provincia,Integer> votosPorProvincia=new HashMap<>();
+        votosPorProvincia.put(Provincia.CABA,0);
+        votosPorProvincia.put(Provincia.BUENOSAIRES,0);
+        votosPorProvincia.put(Provincia.CORDOBA,0);
+        votosPorProvincia.put(Provincia.CHACO,0);
+        votosPorProvincia.put(Provincia.CATAMARCA,0);
+        votosPorProvincia.put(Provincia.CHUBUT,0);
+        votosPorProvincia.put(Provincia.CORRIENTES,0);
+        votosPorProvincia.put(Provincia.ENTRERIOS,0);
+        votosPorProvincia.put(Provincia.FORMOSA,0);
+        votosPorProvincia.put(Provincia.JUJUY,0);
+        votosPorProvincia.put(Provincia.LAPAMPA,0);
+        votosPorProvincia.put(Provincia.LARIOJA,0);
+        votosPorProvincia.put(Provincia.MENDOZA,0);
+        votosPorProvincia.put(Provincia.MISIONES,0);
+        votosPorProvincia.put(Provincia.NEUQUEN,0);
+        votosPorProvincia.put(Provincia.RIONEGRO,0);
+        votosPorProvincia.put(Provincia.SALTA,0);
+        votosPorProvincia.put(Provincia.SANJUAN,0);
+        votosPorProvincia.put(Provincia.SANLUIS,0);
+        votosPorProvincia.put(Provincia.SANTACRUZ,0);
+        votosPorProvincia.put(Provincia.SANTAFE,0);
+        votosPorProvincia.put(Provincia.SANTIAGOESTERO,0);
+        votosPorProvincia.put(Provincia.TIERRAFUEGO,0);
+        votosPorProvincia.put(Provincia.TUCUMAN,0);
+        this.votosPorProvincia=votosPorProvincia;
     }
     public int getDni() { return dni; }
     public HashMap<Provincia,Integer> getVotosPorProvincia() { return votosPorProvincia; }

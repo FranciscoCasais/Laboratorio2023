@@ -43,34 +43,8 @@ public class Sistema {
         return null;
     }
     public static void main(String[] args) {
-        Sistema sistema=new Sistema();
 
-        HashMap<Provincia,Integer> votosPorProvincia=new HashMap<>();
-        votosPorProvincia.put(Provincia.CABA,0);
-        votosPorProvincia.put(Provincia.BUENOSAIRES,0);
-        votosPorProvincia.put(Provincia.CORDOBA,0);
-        votosPorProvincia.put(Provincia.CHACO,0);
-        votosPorProvincia.put(Provincia.CATAMARCA,0);
-        votosPorProvincia.put(Provincia.CHUBUT,0);
-        votosPorProvincia.put(Provincia.CORRIENTES,0);
-        votosPorProvincia.put(Provincia.ENTRERIOS,0);
-        votosPorProvincia.put(Provincia.FORMOSA,0);
-        votosPorProvincia.put(Provincia.JUJUY,0);
-        votosPorProvincia.put(Provincia.LAPAMPA,0);
-        votosPorProvincia.put(Provincia.LARIOJA,0);
-        votosPorProvincia.put(Provincia.MENDOZA,0);
-        votosPorProvincia.put(Provincia.MISIONES,0);
-        votosPorProvincia.put(Provincia.NEUQUEN,0);
-        votosPorProvincia.put(Provincia.RIONEGRO,0);
-        votosPorProvincia.put(Provincia.SALTA,0);
-        votosPorProvincia.put(Provincia.SANJUAN,0);
-        votosPorProvincia.put(Provincia.SANLUIS,0);
-        votosPorProvincia.put(Provincia.SANTACRUZ,0);
-        votosPorProvincia.put(Provincia.SANTAFE,0);
-        votosPorProvincia.put(Provincia.SANTIAGOESTERO,0);
-        votosPorProvincia.put(Provincia.TIERRAFUEGO,0);
-        votosPorProvincia.put(Provincia.TUCUMAN,0);
-
+        // agregar datos al sistema:
         HashSet<String> propuestas=new HashSet<>();
         propuestas.add("chamuyo 1");
         propuestas.add("chamuyo 2");
@@ -85,17 +59,22 @@ public class Sistema {
         propuestasPorTema.put(Tema.SEGURIDAD,propuestas);
 
         Partido p1=Partido.FRENTECONST;
-        Candidato c1=new Candidato(new Fecha(),100,votosPorProvincia,propuestasPorTema,Partido.FRENTECONST,"Schiaretti","JUAAAAAN");
+        Candidato c1=new Candidato(new Fecha(),100,propuestasPorTema,Partido.FRENTECONST,"Schiaretti","JUAAAAAN");
         p1.setRepresentante(c1);
         Partido p2=Partido.JUNTOSXPOLI;
-        Candidato c2=new Candidato(new Fecha(),200,votosPorProvincia,propuestasPorTema,Partido.JUNTOSXPOLI,"Bullrich","Codicia");
+        Candidato c2=new Candidato(new Fecha(),200,propuestasPorTema,Partido.JUNTOSXPOLI,"Bullrich","Codicia");
         p2.setRepresentante(c2);
         Partido p3=Partido.POLIAVANZA;
-        Candidato c3=new Candidato(new Fecha(),300,votosPorProvincia,propuestasPorTema,Partido.POLIAVANZA,"Milanga","Javier");
+        Candidato c3=new Candidato(new Fecha(),300,propuestasPorTema,Partido.POLIAVANZA,"Milanga","Javier");
         p3.setRepresentante(c3);
         Partido p4=Partido.UNIONXDOCENCIA;
-        Candidato c4=new Candidato(new Fecha(),400,votosPorProvincia,propuestasPorTema,Partido.UNIONXDOCENCIA,"Sarassa","Sergio");
+        Candidato c4=new Candidato(new Fecha(),400,propuestasPorTema,Partido.UNIONXDOCENCIA,"Sarassa","Sergio");
         p4.setRepresentante(c4);
+        HashSet<Partido> partidos=new HashSet<>();
+        partidos.add(p1);
+        partidos.add(p2);
+        partidos.add(p3);
+        partidos.add(p4);
 
         Votante v1=new Votante(false,1,Provincia.CABA);
         Votante v2=new Votante(false,2,Provincia.CABA);
@@ -131,86 +110,96 @@ public class Sistema {
         Votante v32=new Votante(false,32,Provincia.SANTIAGOESTERO);
         Votante v33=new Votante(false,33,Provincia.TIERRAFUEGO);
         Votante v34=new Votante(false,34,Provincia.TUCUMAN);
+        HashSet<Votante> padron=new HashSet<>();
+        padron.add(v1);
+        padron.add(v2);
+        padron.add(v3);
+        padron.add(v4);
+        padron.add(v5);
+        padron.add(v6);
+        padron.add(v7);
+        padron.add(v8);
+        padron.add(v9);
+        padron.add(v10);
+        padron.add(v11);
+        padron.add(v12);
+        padron.add(v13);
+        padron.add(v14);
+        padron.add(v15);
+        padron.add(v16);
+        padron.add(v17);
+        padron.add(v18);
+        padron.add(v19);
+        padron.add(v20);
+        padron.add(v21);
+        padron.add(v22);
+        padron.add(v23);
+        padron.add(v24);
+        padron.add(v25);
+        padron.add(v26);
+        padron.add(v27);
+        padron.add(v28);
+        padron.add(v29);
+        padron.add(v30);
+        padron.add(v31);
+        padron.add(v32);
+        padron.add(v33);
+        padron.add(v34);
 
-        sistema.getPartidos().add(p1);
-        sistema.getPartidos().add(p2);
-        sistema.getPartidos().add(p3);
-        sistema.getPartidos().add(p4);
+        Sistema sistema=new Sistema(partidos,padron);
 
-        sistema.getPadron().add(v1);
-        sistema.getPadron().add(v2);
-        sistema.getPadron().add(v3);
-        sistema.getPadron().add(v4);
-        sistema.getPadron().add(v5);
-        sistema.getPadron().add(v6);
-        sistema.getPadron().add(v7);
-        sistema.getPadron().add(v8);
-        sistema.getPadron().add(v9);
-        sistema.getPadron().add(v10);
-        sistema.getPadron().add(v11);
-        sistema.getPadron().add(v12);
-        sistema.getPadron().add(v13);
-        sistema.getPadron().add(v14);
-        sistema.getPadron().add(v15);
-        sistema.getPadron().add(v16);
-        sistema.getPadron().add(v17);
-        sistema.getPadron().add(v18);
-        sistema.getPadron().add(v19);
-        sistema.getPadron().add(v20);
-        sistema.getPadron().add(v21);
-        sistema.getPadron().add(v22);
-        sistema.getPadron().add(v23);
-        sistema.getPadron().add(v24);
-        sistema.getPadron().add(v25);
-        sistema.getPadron().add(v26);
-        sistema.getPadron().add(v27);
-        sistema.getPadron().add(v28);
-        sistema.getPadron().add(v29);
-        sistema.getPadron().add(v30);
-        sistema.getPadron().add(v31);
-        sistema.getPadron().add(v32);
-        sistema.getPadron().add(v33);
-        sistema.getPadron().add(v34);
-
-        Scanner entrada=new Scanner(System.in);
-        System.out.print("Ingrese su DNI: ");
-        int dni=entrada.nextInt();
-        entrada.nextLine();
-        Votante usuario=sistema.encontrarVotante(dni);
-        while(usuario==null) {
-            System.out.print("El DNI no se encuentra en el padrón, intente nuevamente: ");
-            dni=entrada.nextInt();
-            entrada.nextLine();
-            usuario=sistema.encontrarVotante(dni);
-        }
+        // codigo:
+        boolean cambiar,terminar;
         int respuesta=0;
+        Scanner entrada=new Scanner(System.in);
         do {
-            System.out.print("1. Votar a un partido\n2. Mostrar votos por candidato\n3. Mostrar candidato ganador actual\n4. Mostrar porcentaje de personas que no votaron\n5. Salir\n\nIngrese el dígito correspondiente: ");
-            respuesta=entrada.nextInt();
+            cambiar=false;
+            terminar=false;
+            System.out.print("Ingrese su DNI: ");
+            int dni=entrada.nextInt();
             entrada.nextLine();
-            while(respuesta<1 || respuesta>5) {
-                System.out.print("Dígito no válido, intente nuevamente: ");
+            Votante usuario=sistema.encontrarVotante(dni);
+            while(usuario==null) {
+                System.out.print("El DNI no se encuentra en el padrón, intente nuevamente: ");
+                dni=entrada.nextInt();
+                entrada.nextLine();
+                usuario=sistema.encontrarVotante(dni);
+            }
+            do {
+                System.out.print("1. Votar a un partido\n2. Mostrar votos por candidato\n3. Mostrar candidato ganador actual\n4. Mostrar porcentaje de personas que no votaron\n5. Cambiar de usuario\n6. Salir\n\nIngrese el dígito correspondiente: ");
                 respuesta=entrada.nextInt();
                 entrada.nextLine();
-            }
-            switch(respuesta) {
-                case 1:
-                    usuario.emitirVoto(sistema.getPartidos());
-                    break;
-                case 2:
-                    for(Partido partido:sistema.getPartidos()) {
-                        System.out.println("\n\n"+partido.getRepresentante().getNombre()+" "+partido.getRepresentante().getApellido()+":\n");
-                        partido.getRepresentante().mostrarVotos();
-                    }
-                    break;
-                case 3:
-                    Candidato candidatoGanador=sistema.candidatoGanador();
-                    System.out.println("El candidato con más votos actualmente es "+candidatoGanador.getNombre()+" "+candidatoGanador.getApellido()+", del partido "+candidatoGanador.getPartidoPolitico().getNombre()+".");
-                    break;
-                case 4:
-                    System.out.println("El "+sistema.porcentajeNoVotantes()+"% del padrón no votó.");
-                    break;
-            }
-        } while(respuesta!=5);
+                while(respuesta<1 || respuesta>6) {
+                    System.out.print("Dígito no válido, intente nuevamente: ");
+                    respuesta=entrada.nextInt();
+                    entrada.nextLine();
+                }
+                switch(respuesta) {
+                    case 1:
+                        usuario.emitirVoto(sistema.getPartidos());
+                        break;
+                    case 2:
+                        for(Partido partido:sistema.getPartidos()) {
+                            System.out.println("\n\n"+partido.getRepresentante().getNombre()+" "+partido.getRepresentante().getApellido()+":\n");
+                            partido.getRepresentante().mostrarVotos();
+                        }
+                        break;
+                    case 3:
+                        Candidato candidatoGanador=sistema.candidatoGanador();
+                        System.out.println("El candidato con más votos actualmente es "+candidatoGanador.getNombre()+" "+candidatoGanador.getApellido()+", del partido "+candidatoGanador.getPartidoPolitico().getNombre()+", con "+candidatoGanador.votosTotales()+" votos.");
+                        break;
+                    case 4:
+                        System.out.println("El "+sistema.porcentajeNoVotantes()+"% del padrón no votó.");
+                        break;
+                    case 5:
+                        cambiar=true;
+                        break;
+                    default:
+                        cambiar=true;
+                        terminar=true;
+                        break;
+                }
+            } while(!cambiar);
+        } while(!terminar);
     }
 }
