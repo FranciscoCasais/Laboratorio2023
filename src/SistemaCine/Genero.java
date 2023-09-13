@@ -1,8 +1,8 @@
 package SistemaCine;
 public enum Genero {
-    ACCION("acción"),AVENTURA("aventura"),ROMANCE("romance"),DRAMA("drama"),COMEDIA("comedia");
-    private String nombre;
-    Genero(String nombre) { this.nombre=nombre; }
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre=nombre; }
+    ACCION,AVENTURA,ROMANCE,DRAMA,COMEDIA;
+    public String toString() {
+        if(this.equals(ACCION)) return name().charAt(0)+name().toLowerCase().substring(1,4)+"ó"+name().toLowerCase().charAt(5);
+        else return name().charAt(0)+name().toLowerCase().substring(1,name().length());
+    }
 }
