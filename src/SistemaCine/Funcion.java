@@ -26,9 +26,11 @@ public class Funcion {
     public void setPelicula(Pelicula pelicula) { this.pelicula=pelicula; }
     public void setSala(Sala sala) { this.sala=sala; }
     public String toString() {
-        if(getFechaHora().getMinute()<10) {
-            String minutos="0"+getFechaHora().getMinute();
-            return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth()+"/"+getFechaHora().getYear()+" "+getFechaHora().getHour()+":"+minutos;
-        } else return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth()+"/"+getFechaHora().getYear()+" "+getFechaHora().getHour()+":"+getFechaHora().getMinute();
+        String horas,minutos;
+        if(getFechaHora().getHour()<10) horas="0"+getFechaHora().getHour();
+        else horas=String.valueOf(getFechaHora().getHour());
+        if(getFechaHora().getMinute()<10) minutos="0"+getFechaHora().getMinute();
+        else minutos=String.valueOf(getFechaHora().getMinute());
+        return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth().getValue()+"/"+getFechaHora().getYear()+" "+horas+":"+minutos;
     }
 }
