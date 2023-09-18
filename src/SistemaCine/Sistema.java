@@ -239,7 +239,7 @@ public class Sistema {
         entradasCompradas.add(f6);
         entradasCompradas.add(f8);
         entradasCompradas.add(f10);
-        Usuario u4=new Usuario(entradasCompradas,new Fecha(),"Eberle","usuario4@gmail.com","Paja");
+        Usuario u4=new Usuario(entradasCompradas,new Fecha(),"Yañez","usuario4@gmail.com","Boli");
         entradasCompradas=new HashSet<>();
         entradasCompradas.add(f3);
         entradasCompradas.add(f4);
@@ -247,7 +247,7 @@ public class Sistema {
         Usuario u5=new Usuario(entradasCompradas,new Fecha(),"Broco","usuario5@gmail.com","Santi");
         entradasCompradas=new HashSet<>();
         entradasCompradas.add(f8);
-        Usuario u6=new Usuario(entradasCompradas,new Fecha(),"Yañez","usuario6@gmail.com","Boli");
+        Usuario u6=new Usuario(entradasCompradas,new Fecha(),"Eberle","usuario6@gmail.com","Paja");
         entradasCompradas=new HashSet<>();
         entradasCompradas.add(f2);
         entradasCompradas.add(f3);
