@@ -1,18 +1,21 @@
 package SistemaCine;
 import java.util.HashSet;
 import SeresHumanos.Persona;
+import Tiempo.Fecha;
 public class Usuario extends Persona {
     private int id;
     HashSet<Funcion> entradasCompradas;
     private String mail;
     private static int cantidadUsuarios=0;
     public Usuario() {
+        super();
         cantidadUsuarios++;
         id=cantidadUsuarios;
         entradasCompradas=new HashSet<>();
         mail="";
     }
-    public Usuario(HashSet<Funcion> entradasCompradas,String mail) {
+    public Usuario(HashSet<Funcion> entradasCompradas,Fecha fechaNacimiento,String apellido,String mail,String nombre) {
+        super(nombre,apellido,fechaNacimiento);
         cantidadUsuarios++;
         id=cantidadUsuarios;
         this.entradasCompradas=entradasCompradas;

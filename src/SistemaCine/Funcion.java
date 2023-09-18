@@ -25,5 +25,10 @@ public class Funcion {
     public void setFechaHora(LocalDateTime fechaHora) { this.fechaHora=fechaHora; }
     public void setPelicula(Pelicula pelicula) { this.pelicula=pelicula; }
     public void setSala(Sala sala) { this.sala=sala; }
-    public String toString() { return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth()+"/"+getFechaHora().getYear()+" "+getFechaHora().getHour()+":"+getFechaHora().getMinute(); }
+    public String toString() {
+        if(getFechaHora().getMinute()<10) {
+            String minutos="0"+getFechaHora().getMinute();
+            return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth()+"/"+getFechaHora().getYear()+" "+getFechaHora().getHour()+":"+minutos;
+        } else return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth()+"/"+getFechaHora().getYear()+" "+getFechaHora().getHour()+":"+getFechaHora().getMinute();
+    }
 }
