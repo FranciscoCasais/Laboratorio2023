@@ -6,7 +6,8 @@ public class Azucarada extends Bebida {
         cantidadAzucar=0;
         coeficienteNegatividad=0;
     }
-    public Azucarada(float cantidadAzucar) {
+    public Azucarada(float cantidadAzucar,String nombre) {
+        super(nombre);
         this.cantidadAzucar=cantidadAzucar;
         this.coeficienteNegatividad=cantidadAzucar*10;
     }
@@ -16,4 +17,5 @@ public class Azucarada extends Bebida {
     public void setCoeficienteNegatividad(float coeficienteNegatividad) { this.coeficienteNegatividad=coeficienteNegatividad; }
     public static float getCoeficientePositividad() { return coeficientePositividad; }
     public static void setCoeficientePositividad(float coeficientePositividad) { Azucarada.coeficientePositividad=coeficientePositividad; }
+    public float coeficienteHidratacion(int cantidad) { return cantidad*(coeficientePositividad-coeficienteNegatividad); }
 }

@@ -5,7 +5,8 @@ public class Neutra extends Bebida {
         coeficienteNegatividad=0;
         coeficientePositividad=0;
     }
-    public Neutra(float coeficienteNegatividad,float coeficientePositividad) {
+    public Neutra(float coeficienteNegatividad,float coeficientePositividad,String nombre) {
+        super(nombre);
         this.coeficienteNegatividad=coeficienteNegatividad;
         this.coeficientePositividad=coeficientePositividad;
     }
@@ -13,4 +14,5 @@ public class Neutra extends Bebida {
     public void setCoeficienteNegatividad(float coeficienteNegatividad) { this.coeficienteNegatividad=coeficienteNegatividad; }
     public float getCoeficientePositividad() { return coeficientePositividad; }
     public void setCoeficientePositividad(float coeficientePositividad) { this.coeficientePositividad=coeficientePositividad; }
+    public float coeficienteHidratacion(int cantidad) { return cantidad*(coeficientePositividad-coeficienteNegatividad); }
 }
