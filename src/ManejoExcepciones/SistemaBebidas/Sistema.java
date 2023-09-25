@@ -30,37 +30,47 @@ public class Sistema {
         }
         return null;
     }
-    public Consumidor mejorCoeficiente() {
-        Consumidor mejorConsumidor=null;
-        for(Consumidor consumidor:consumidores) {
-            if(mejorConsumidor==null) mejorConsumidor=consumidor;
-            else if(consumidor.coeficienteHidratacion()>mejorConsumidor.coeficienteHidratacion()) mejorConsumidor=consumidor;
+    public Consumidor mejorCoeficiente() throws SinConsumidoresCargadosException {
+        if(consumidores.size()==0) throw new SinConsumidoresCargadosException("\nNo hay consumidores cagrados en el sistema.\n");
+        else {
+            Consumidor mejorConsumidor=null;
+            for(Consumidor consumidor:consumidores) {
+                if(mejorConsumidor==null) mejorConsumidor=consumidor;
+                else if(consumidor.coeficienteHidratacion()>mejorConsumidor.coeficienteHidratacion()) mejorConsumidor=consumidor;
+            }
+            return mejorConsumidor;
         }
-        return mejorConsumidor;
     }
-    public Consumidor peorCoeficiente() {
-        Consumidor peorConsumidor=null;
-        for(Consumidor consumidor:consumidores) {
-            if(peorConsumidor==null) peorConsumidor=consumidor;
-            else if(consumidor.coeficienteHidratacion()<peorConsumidor.coeficienteHidratacion()) peorConsumidor=consumidor;
+    public Consumidor peorCoeficiente() throws SinConsumidoresCargadosException {
+        if(consumidores.size()==0) throw new SinConsumidoresCargadosException("\nNo hay consumidores cargados en el sistema.\n");
+        else {
+            Consumidor peorConsumidor=null;
+            for(Consumidor consumidor:consumidores) {
+                if(peorConsumidor==null) peorConsumidor=consumidor;
+                else if(consumidor.coeficienteHidratacion()<peorConsumidor.coeficienteHidratacion()) peorConsumidor=consumidor;
+            }
+            return peorConsumidor;
         }
-        return peorConsumidor;
     }
-    public void consumirBebida(int cantidad,int dni,String nombreBebida) {
+    public void consumirBebida(int cantidad,int dni,String nombreBebida) throws BebidaInexistenteException,DnisIgualesException,SinConsumidoresCargadosException,StockInsuficienteException,UsuarioInexistenteException {
         Bebida bebida=encontrarBebida(nombreBebida);
         Consumidor consumidor=encontrarConsumidor(dni);
-        if(bebida==null) {  }
-        else if(consumidor==null) {  }
-        else if(stockBebidas.get(bebida)-cantidad<0) {  }
+        if(consumidores.size()==0) throw new SinConsumidoresCargadosException("\nNo hay consumidores cargados en el sistema.\n");
+        else if(bebida==null) throw new BebidaInexistenteException("\nNo se encontró la bebida.\n");
+        else if(consumidor==null) throw new UsuarioInexistenteException("\nNo se encontró al usuario.\n");
+        else if(stockBebidas.get(bebida)-cantidad<0) throw new StockInsuficienteException("\nNo hay suficiente stock de la bebida solicitada.\n");
         else if(consumidor.getBebidasConsumidas().containsKey(bebida)) consumidor.getBebidasConsumidas().put(bebida,consumidor.getBebidasConsumidas().get(bebida)+cantidad);
         else consumidor.getBebidasConsumidas().put(bebida,cantidad);
         stockBebidas.put(bebida,stockBebidas.get(bebida)-cantidad);
         System.out.println("\nBebida consumida exitosamente.\n");
     }
-    public void mostrarCoeficientesHidratacion() {
+    public void mostrarCoeficientesHidratacion() throws SinConsumidoresCargadosException {
         System.out.print("\n");
-        for(Consumidor consumidor:consumidores) System.out.println(consumidor.getNombre()+" "+consumidor.getApellido()+": "+consumidor.coeficienteHidratacion());
-        System.out.print("\n");
+        if(consumidores.size()==0) throw new SinConsumidoresCargadosException("No hay consumidores cargados en el sistema.\n");
+        else {
+            for(Consumidor consumidor:consumidores) System.out.println(consumidor.getNombre()+" "+consumidor.getApellido()+": "+consumidor.coeficienteHidratacion());
+            System.out.print("\n");
+        }
     }
     public static void main(String[] args) {
         int respuesta;
@@ -113,11 +123,14 @@ public class Sistema {
             }
             switch(respuesta) {
                 case 1:
-                    sistema.mostrarCoeficientesHidratacion();
+                    try { sistema.mostrarCoeficientesHidratacion(); }
+                    catch(SinConsumidoresCargadosException e) { System.out.println(e.getMessage()); }
                     break;
                 case 2:
-                    Consumidor mejorConsumidor=sistema.mejorCoeficiente(),peorConsumidor=sistema.peorCoeficiente();
-                    System.out.println("\nConsumidor con mejor coeficiente de hidratación:\n"+mejorConsumidor.getNombre()+" "+mejorConsumidor.getApellido()+": "+mejorConsumidor.coeficienteHidratacion()+"\n\nConsumidor con peor coeficiente de hidratación:\n"+peorConsumidor.getNombre()+" "+peorConsumidor.getApellido()+": "+peorConsumidor.coeficienteHidratacion()+"\n");
+                    try {
+                        Consumidor mejorConsumidor=sistema.mejorCoeficiente(),peorConsumidor=sistema.peorCoeficiente();
+                        System.out.println("\nConsumidor con mejor coeficiente de hidratación:\n"+mejorConsumidor.getNombre()+" "+mejorConsumidor.getApellido()+": "+mejorConsumidor.coeficienteHidratacion()+"\n\nConsumidor con peor coeficiente de hidratación:\n"+peorConsumidor.getNombre()+" "+peorConsumidor.getApellido()+": "+peorConsumidor.coeficienteHidratacion()+"\n");
+                    } catch(SinConsumidoresCargadosException e) { System.out.println(e.getMessage()); }
                     break;
                 case 3:
                     System.out.print("\nIngrese su DNI: ");
@@ -128,7 +141,8 @@ public class Sistema {
                     System.out.print("Ingrese la cantidad: ");
                     int cantidad=entrada.nextInt();
                     entrada.nextLine();
-                    sistema.consumirBebida(cantidad,dni,nombreBebida);
+                    try { sistema.consumirBebida(cantidad,dni,nombreBebida); }
+                    catch(BebidaInexistenteException | DnisIgualesException | SinConsumidoresCargadosException | StockInsuficienteException | UsuarioInexistenteException e) { System.out.println(e.getMessage()); }
                     break;
             }
         } while(respuesta!=4);
