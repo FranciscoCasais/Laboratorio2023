@@ -77,7 +77,7 @@ public class Sistema {
         System.out.print("\n");
         if(consumidores.size()==0) throw new SinConsumidoresCargadosException("No hay consumidores cargados en el sistema.\n");
         else {
-            for(Consumidor consumidor:consumidores) System.out.println(consumidor.getNombre()+" "+consumidor.getApellido()+": "+consumidor.coeficienteHidratacion());
+            for(Consumidor consumidor:consumidores) System.out.println(consumidor.toString());
             System.out.print("\n");
         }
     }
@@ -138,7 +138,7 @@ public class Sistema {
                 case 2:
                     try {
                         Consumidor mejorConsumidor=sistema.mejorCoeficiente(),peorConsumidor=sistema.peorCoeficiente();
-                        System.out.println("\nConsumidor con mejor coeficiente de hidratación:\n"+mejorConsumidor.getNombre()+" "+mejorConsumidor.getApellido()+": "+mejorConsumidor.coeficienteHidratacion()+"\n\nConsumidor con peor coeficiente de hidratación:\n"+peorConsumidor.getNombre()+" "+peorConsumidor.getApellido()+": "+peorConsumidor.coeficienteHidratacion()+"\n");
+                        System.out.println("\nConsumidor con mejor coeficiente de hidratación:\n"+mejorConsumidor.toString()+"\n\nConsumidor con peor coeficiente de hidratación:\n"+peorConsumidor.toString()+"\n");
                     } catch(SinConsumidoresCargadosException e) { System.out.println(e.getMessage()); }
                     break;
                 case 3:

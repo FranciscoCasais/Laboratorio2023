@@ -23,4 +23,5 @@ public class Consumidor extends SeresHumanos.Persona {
         for(Map.Entry<Bebida,Integer> claveValor:bebidasConsumidas.entrySet()) coeficienteHidratacion+=claveValor.getKey().coeficienteHidratacion(claveValor.getValue());
         return coeficienteHidratacion;
     }
+    public String toString() { return nombre+" "+apellido+": "+coeficienteHidratacion(); }
 }

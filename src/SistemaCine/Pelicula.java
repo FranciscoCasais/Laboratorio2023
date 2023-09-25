@@ -31,6 +31,6 @@ public class Pelicula {
     public static int getCantidadPeliculas() { return cantidadPeliculas; }
     public static void setCantidadPeliculas(int cantidadPeliculas) { Pelicula.cantidadPeliculas=cantidadPeliculas; }
     public String toString() {
-        return getTitulo()+" ("+getGenero().toString()+", "+getDuracionMinutos()+" minutos)";
+        return titulo+" ("+genero.toString()+", "+duracionMinutos+" minutos)";
     }
 }

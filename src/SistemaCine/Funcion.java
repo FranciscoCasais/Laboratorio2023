@@ -27,10 +27,10 @@ public class Funcion {
     public void setSala(Sala sala) { this.sala=sala; }
     public String toString() {
         String horas,minutos;
-        if(getFechaHora().getHour()<10) horas="0"+getFechaHora().getHour();
-        else horas=String.valueOf(getFechaHora().getHour());
-        if(getFechaHora().getMinute()<10) minutos="0"+getFechaHora().getMinute();
-        else minutos=String.valueOf(getFechaHora().getMinute());
-        return getPelicula().toString()+", "+getFechaHora().getDayOfMonth()+"/"+getFechaHora().getMonth().getValue()+"/"+getFechaHora().getYear()+" "+horas+":"+minutos;
+        if(fechaHora.getHour()<10) horas="0"+fechaHora.getHour();
+        else horas=String.valueOf(fechaHora.getHour());
+        if(fechaHora.getMinute()<10) minutos="0"+fechaHora.getMinute();
+        else minutos=String.valueOf(fechaHora.getMinute());
+        return pelicula.toString()+", "+fechaHora.getDayOfMonth()+"/"+fechaHora.getMonth().getValue()+"/"+fechaHora.getYear()+" "+horas+":"+minutos;
     }
 }
