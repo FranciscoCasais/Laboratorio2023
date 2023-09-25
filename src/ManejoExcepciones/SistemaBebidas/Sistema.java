@@ -52,7 +52,16 @@ public class Sistema {
             return peorConsumidor;
         }
     }
-    public void consumirBebida(int cantidad,int dni,String nombreBebida) throws BebidaInexistenteException,DnisIgualesException,SinConsumidoresCargadosException,StockInsuficienteException,UsuarioInexistenteException {
+    public void consumirBebida() throws BebidaInexistenteException,DnisIgualesException,SinConsumidoresCargadosException,StockInsuficienteException,UsuarioInexistenteException {
+        Scanner entrada=new Scanner(System.in);
+        System.out.print("\nIngrese su DNI: ");
+        int dni=entrada.nextInt();
+        entrada.nextLine();
+        System.out.print("Ingrese el nombre de la bebida a consumir: ");
+        String nombreBebida=entrada.nextLine();
+        System.out.print("Ingrese la cantidad: ");
+        int cantidad=entrada.nextInt();
+        entrada.nextLine();
         Bebida bebida=encontrarBebida(nombreBebida);
         Consumidor consumidor=encontrarConsumidor(dni);
         if(consumidores.size()==0) throw new SinConsumidoresCargadosException("\nNo hay consumidores cargados en el sistema.\n");
@@ -133,15 +142,7 @@ public class Sistema {
                     } catch(SinConsumidoresCargadosException e) { System.out.println(e.getMessage()); }
                     break;
                 case 3:
-                    System.out.print("\nIngrese su DNI: ");
-                    int dni=entrada.nextInt();
-                    entrada.nextLine();
-                    System.out.print("Ingrese el nombre de la bebida a consumir: ");
-                    String nombreBebida=entrada.nextLine();
-                    System.out.print("Ingrese la cantidad: ");
-                    int cantidad=entrada.nextInt();
-                    entrada.nextLine();
-                    try { sistema.consumirBebida(cantidad,dni,nombreBebida); }
+                    try { sistema.consumirBebida(); }
                     catch(BebidaInexistenteException | DnisIgualesException | SinConsumidoresCargadosException | StockInsuficienteException | UsuarioInexistenteException e) { System.out.println(e.getMessage()); }
                     break;
             }
