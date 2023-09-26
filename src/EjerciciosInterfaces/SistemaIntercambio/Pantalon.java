@@ -23,7 +23,7 @@ public class Pantalon extends PrendaDeRopa implements Prestable {
     public String toString() { return "Estado:\n"+getEstado().toString()+"\nMaterial: "+getMaterial().toString()+"\nColor: "+getColor()+"\nMarca: "+getMarca()+"\nLargo (cm): "+largo+"\nCadera (cm): "+medidaCadera+"\nCintura (cm): "+medidaCintura; }
     @Override
     public void prestar() {
-        // if() System.out.println("El libro se dará prestado.");
-        // else System.out.println("El libro no se prestará.");
+        if(cumpleCondicionesPrestar()) System.out.println("El pantalón se dará prestado.");
+        else System.out.println("El pantalón no se prestará.");
     }
 }

@@ -22,7 +22,7 @@ public class Remera extends PrendaDeRopa implements Prestable {
     public String toString() { return "Estado:\n"+getEstado().toString()+"\nMaterial: "+getMaterial().toString()+"\nColor: "+getColor()+"\nMarca: "+getMarca()+"\nContorno (cm): "+contorno+"\nLargo del torso (cm): "+largoTorso+"\nEspalda (cm): "+medidaEspalda; }
     @Override
     public void prestar() {
-        // if() System.out.println("El libro se dará prestado.");
-        // else System.out.println("El libro no se prestará.");
+        if(cumpleCondicionesPrestar()) System.out.println("La remera se dará prestada.");
+        else System.out.println("La remera no se prestará.");
     }
 }

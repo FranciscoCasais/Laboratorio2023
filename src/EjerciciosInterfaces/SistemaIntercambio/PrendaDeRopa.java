@@ -1,5 +1,5 @@
 package EjerciciosInterfaces.SistemaIntercambio;
-public abstract class PrendaDeRopa {
+public abstract class PrendaDeRopa extends Articulo {
     private Estado estado;
     private Material material;
     private String color,marca;
@@ -23,5 +23,6 @@ public abstract class PrendaDeRopa {
     public void setColor(String color) { this.color=color; }
     public String getMarca() { return marca; }
     public void setMarca(String marca) { this.marca=marca; }
-    public abstract String toString();
+    @Override
+    public boolean cumpleCondicionesPrestar() { return getEstado().getManchas()==0 && getEstado().getRoturas()==0; }
 }

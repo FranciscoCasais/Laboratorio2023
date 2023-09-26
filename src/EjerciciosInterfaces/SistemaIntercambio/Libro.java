@@ -2,7 +2,6 @@ package EjerciciosInterfaces.SistemaIntercambio;
 import java.time.Year;
 import java.util.HashMap;
 import java.util.Map;
-
 public class Libro extends LibroDeTexto implements Prestable {
     private HashMap<String,Integer> paginasPorCapitulo;
     public Libro() {
@@ -16,6 +15,8 @@ public class Libro extends LibroDeTexto implements Prestable {
     public HashMap<String,Integer> getPaginasPorCapitulo() { return paginasPorCapitulo; }
     public void setPaginasPorCapitulo(HashMap<String, Integer> paginasPorCapitulo) { this.paginasPorCapitulo=paginasPorCapitulo; }
     @Override
+    public boolean cumpleCondicionesPrestar() { return paginasPorCapitulo.size()%2==1; }
+    @Override
     public String toString() {
         String paginasPorCapituloString="";
         for(Map.Entry<String,Integer> entrada:paginasPorCapitulo.entrySet()) {
@@ -25,7 +26,7 @@ public class Libro extends LibroDeTexto implements Prestable {
     }
     @Override
     public void prestar() {
-        if(paginasPorCapitulo.size()%2==0) System.out.println("El libro se dará prestado.");
+        if(cumpleCondicionesPrestar()) System.out.println("El libro se dará prestado.");
         else System.out.println("El libro no se prestará.");
     }
 }
