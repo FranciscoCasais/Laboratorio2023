@@ -1,5 +1,5 @@
 package EjerciciosInterfaces.SistemaIntercambio;
-public class Remera extends PrendaDeRopa implements Prestable {
+public class Remera extends PrendaDeRopa {
     private double contorno,largoTorso,medidaEspalda;
     public Remera() {
         contorno=0;
@@ -20,9 +20,4 @@ public class Remera extends PrendaDeRopa implements Prestable {
     public void setMedidaEspalda(double medidaEspalda) { this.medidaEspalda=medidaEspalda; }
     @Override
     public String toString() { return "Estado:\n"+getEstado().toString()+"\nMaterial: "+getMaterial().toString()+"\nColor: "+getColor()+"\nMarca: "+getMarca()+"\nContorno (cm): "+contorno+"\nLargo del torso (cm): "+largoTorso+"\nEspalda (cm): "+medidaEspalda; }
-    @Override
-    public void prestar() {
-        if(cumpleCondicionesPrestar()) System.out.println("La remera se dará prestada.");
-        else System.out.println("La remera no se prestará.");
-    }
 }

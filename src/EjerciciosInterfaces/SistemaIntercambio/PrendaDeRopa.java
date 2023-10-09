@@ -1,8 +1,8 @@
 package EjerciciosInterfaces.SistemaIntercambio;
-public abstract class PrendaDeRopa extends Articulo {
-    private Estado estado;
-    private Material material;
-    private String color,marca;
+public abstract class PrendaDeRopa implements Prestable {
+    protected Estado estado;
+    protected Material material;
+    protected String color,marca;
     public PrendaDeRopa() {
         estado=new Estado();
         material=null;
@@ -24,5 +24,7 @@ public abstract class PrendaDeRopa extends Articulo {
     public String getMarca() { return marca; }
     public void setMarca(String marca) { this.marca=marca; }
     @Override
-    public boolean cumpleCondicionesPrestar() { return getEstado().getManchas()==0 && getEstado().getRoturas()==0; }
+    public boolean agregarElemento() { return prestar(); }
+    @Override
+    public boolean prestar() { return getEstado().getManchas()==0 && getEstado().getRoturas()==0; }
 }

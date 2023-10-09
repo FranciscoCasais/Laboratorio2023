@@ -1,15 +1,15 @@
 package EjerciciosInterfaces.SistemaIntercambio;
 import java.time.Year;
-public abstract class LibroDeTexto extends Articulo {
-    private int codigo;
-    private String titulo;
-    private Year anioPublicacion;
-    public LibroDeTexto() {
+public abstract class Escrito {
+    protected int codigo;
+    protected String titulo;
+    protected Year anioPublicacion;
+    public Escrito() {
         codigo=0;
         titulo="";
         anioPublicacion=null;
     }
-    public LibroDeTexto(int codigo,String titulo,Year anioPublicacion) {
+    public Escrito(int codigo,String titulo,Year anioPublicacion) {
         this.codigo=codigo;
         this.titulo=titulo;
         this.anioPublicacion=anioPublicacion;

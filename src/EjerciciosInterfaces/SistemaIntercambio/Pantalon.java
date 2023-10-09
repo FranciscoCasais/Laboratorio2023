@@ -1,5 +1,5 @@
 package EjerciciosInterfaces.SistemaIntercambio;
-public class Pantalon extends PrendaDeRopa implements Prestable {
+public class Pantalon extends PrendaDeRopa {
     private double largo,medidaCadera,medidaCintura;
     public Pantalon() {
         super();
@@ -21,9 +21,4 @@ public class Pantalon extends PrendaDeRopa implements Prestable {
     public void setMedidaCintura(double medidaCintura) { this.medidaCintura=medidaCintura; }
     @Override
     public String toString() { return "Estado:\n"+getEstado().toString()+"\nMaterial: "+getMaterial().toString()+"\nColor: "+getColor()+"\nMarca: "+getMarca()+"\nLargo (cm): "+largo+"\nCadera (cm): "+medidaCadera+"\nCintura (cm): "+medidaCintura; }
-    @Override
-    public void prestar() {
-        if(cumpleCondicionesPrestar()) System.out.println("El pantalón se dará prestado.");
-        else System.out.println("El pantalón no se prestará.");
-    }
 }
