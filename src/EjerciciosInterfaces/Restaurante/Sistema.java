@@ -1,7 +1,7 @@
 package EjerciciosInterfaces.Restaurante;
 import java.time.LocalDate;
 import java.util.*;
-public class Sistema {
+public class Sistema implements GestionRestaurante {
     private HashSet<Chef> chefs;
     private HashSet<Plato> menu;
     private String nombreRestaurante;
@@ -21,26 +21,6 @@ public class Sistema {
     public void setMenu(HashSet<Plato> menu) { this.menu = menu; }
     public String getNombreRestaurante() { return nombreRestaurante; }
     public void setNombreRestaurante(String nombreRestaurante) { this.nombreRestaurante = nombreRestaurante; }
-    public void agregarPlato(Plato plato) throws ChefNoContratadoException,PlatoRepetidoException {
-        if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("El plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.");
-        else if(menu.contains(plato)) throw new PlatoRepetidoException("El plato no pudo ser agregado porque ya está incluido en el menú.");
-        else {
-            menu.add(plato);
-            System.out.println("El plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".");
-        }
-    }
-    public void contratarChef(Chef chef) throws ChefMenorDeEdadException,ChefSinExperienciaPreviaException {
-        if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.");
-        else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
-        else {
-            chefs.add(chef);
-            System.out.println("El chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".");
-        }
-    }
-    public void mostrarMenu() {
-        for(Plato plato:menu) System.out.print("\n"+plato.toString());
-        System.out.println("\n");
-    }
     public Chef seleccionarChefACargo(Scanner entrada) {
         HashMap<Integer,Chef> idChefs=new HashMap<>();
         int i=1;
@@ -69,8 +49,7 @@ public class Sistema {
         System.out.print("\nIngrese el precio: ");
         double precio=entrada.nextDouble();
         Chef chefACargo=seleccionarChefACargo(entrada);
-        try { agregarPlato(new Plato(chefACargo,precio,descripcion,nombre,tipo)); }
-        catch(ChefNoContratadoException | PlatoRepetidoException e) { System.out.println(e.getMessage()); }
+        agregarPlato(new Plato(chefACargo,precio,descripcion,nombre,tipo));
     }
     public void contratarChef(Scanner entrada) {
         System.out.print("\nIngrese el nombre del chef: ");
@@ -103,8 +82,11 @@ public class Sistema {
         boolean experienciaCulinariaPrevia;
         if(letra=='S') experienciaCulinariaPrevia=true;
         else experienciaCulinariaPrevia=false;
-        try { contratarChef(new Chef(nombre,apellido,fechaNacimiento,experienciaCulinariaPrevia,dni)); }
-        catch(ChefMenorDeEdadException | ChefSinExperienciaPreviaException e) { System.out.println(e.getMessage()); }
+        contratarChef(new Chef(nombre,apellido,fechaNacimiento,experienciaCulinariaPrevia,dni));
+    }
+    public void mostrarMenu() {
+        for(Plato plato:menu) System.out.print("\n"+plato.toString());
+        System.out.println("\n");
     }
     public static Tipo seleccionarTipo(Scanner entrada) {
         HashMap<Integer,Tipo> idTipos=new HashMap<>();
@@ -124,6 +106,28 @@ public class Sistema {
             entrada.nextLine();
         }
         return idTipos.get(tipoSeleccionado);
+    }
+    @Override
+    public void agregarPlato(Plato plato) {
+        try{
+            if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("El plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.");
+            else if(menu.contains(plato)) throw new PlatoRepetidoException("El plato no pudo ser agregado porque ya está incluido en el menú.");
+            else {
+                menu.add(plato);
+                System.out.println("El plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".");
+            }
+        } catch(ChefNoContratadoException | PlatoRepetidoException e) { System.out.println(e.getMessage()); }
+    }
+    @Override
+    public void contratarChef(Chef chef) {
+        try {
+            if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.");
+            else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
+            else {
+                chefs.add(chef);
+                System.out.println("El chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".");
+            }
+        } catch(ChefSinExperienciaPreviaException | ChefMenorDeEdadException e) { System.out.println(e.getMessage()); }
     }
     public static void main(String[] args) {
         int respuesta;
