@@ -31,7 +31,7 @@ public class Sistema {
     }
     public void contratarChef(Chef chef) throws ChefMenorDeEdadException,ChefSinExperienciaPreviaException {
         if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.");
-        else if(LocalDate.now().getYear()-chef.getFechaNacimiento().getYear()<18 || (LocalDate.now().getYear()-chef.getFechaNacimiento().getYear()==18 && LocalDate.now().getMonthValue()<chef.getFechaNacimiento().getMonthValue()) || (LocalDate.now().getMonthValue()==chef.getFechaNacimiento().getMonthValue() && LocalDate.now().getDayOfMonth()<chef.getFechaNacimiento().getDayOfMonth())) throw new ChefMenorDeEdadException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
+        else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
         else {
             chefs.add(chef);
             System.out.println("El chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".");
@@ -41,11 +41,11 @@ public class Sistema {
         for(Plato plato:menu) System.out.print("\n"+plato.toString());
         System.out.println("\n");
     }
-    public static Chef seleccionarChefACargo(Scanner entrada,Sistema sistema) {
+    public Chef seleccionarChefACargo(Scanner entrada) {
         HashMap<Integer,Chef> idChefs=new HashMap<>();
         int i=1;
         System.out.println("\nSeleccione el chef que estará a cargo de la preparación del plato:\n");
-        for(Chef chef:sistema.getChefs()) {
+        for(Chef chef:chefs) {
             System.out.println(i+". "+chef.getNombre()+" "+chef.getApellido());
             idChefs.put(i,chef);
             i++;
@@ -60,26 +60,7 @@ public class Sistema {
         }
         return idChefs.get(chefSeleccionado);
     }
-    public static Tipo seleccionarTipo(Scanner entrada) {
-        HashMap<Integer,Tipo> idTipos=new HashMap<>();
-        int i=1;
-        System.out.println("\nSeleccione el tipo:\n");
-        for(Tipo tipo:Tipo.values()) {
-            System.out.println(i+". "+tipo.toString().toUpperCase().charAt(0)+tipo.toString().substring(1));
-            idTipos.put(i,tipo);
-            i++;
-        }
-        System.out.print("\nIngrese el dígito correspondiente: ");
-        int tipoSeleccionado=entrada.nextInt();
-        entrada.nextLine();
-        while(tipoSeleccionado<1 || tipoSeleccionado>=i) {
-            System.out.print("Dígito no válido, intente nuevamente: ");
-            tipoSeleccionado=entrada.nextInt();
-            entrada.nextLine();
-        }
-        return idTipos.get(tipoSeleccionado);
-    }
-    public static void agregarPlato(Scanner entrada,Sistema sistema) {
+    public void agregarPlato(Scanner entrada) {
         System.out.print("\nIngrese el nombre del plato: ");
         String nombre=entrada.nextLine();
         System.out.print("Ingrese la descripción del plato: ");
@@ -87,11 +68,11 @@ public class Sistema {
         Tipo tipo=seleccionarTipo(entrada);
         System.out.print("\nIngrese el precio: ");
         double precio=entrada.nextDouble();
-        Chef chefACargo=seleccionarChefACargo(entrada,sistema);
-        try { sistema.agregarPlato(new Plato(chefACargo,precio,descripcion,nombre,tipo)); }
+        Chef chefACargo=seleccionarChefACargo(entrada);
+        try { agregarPlato(new Plato(chefACargo,precio,descripcion,nombre,tipo)); }
         catch(ChefNoContratadoException | PlatoRepetidoException e) { System.out.println(e.getMessage()); }
     }
-    public static void contratarChef(Scanner entrada,Sistema sistema) {
+    public void contratarChef(Scanner entrada) {
         System.out.print("\nIngrese el nombre del chef: ");
         String nombre=entrada.nextLine();
         System.out.print("Ingrese el apellido: ");
@@ -122,8 +103,27 @@ public class Sistema {
         boolean experienciaCulinariaPrevia;
         if(letra=='S') experienciaCulinariaPrevia=true;
         else experienciaCulinariaPrevia=false;
-        try { sistema.contratarChef(new Chef(nombre,apellido,fechaNacimiento,experienciaCulinariaPrevia,dni)); }
+        try { contratarChef(new Chef(nombre,apellido,fechaNacimiento,experienciaCulinariaPrevia,dni)); }
         catch(ChefMenorDeEdadException | ChefSinExperienciaPreviaException e) { System.out.println(e.getMessage()); }
+    }
+    public static Tipo seleccionarTipo(Scanner entrada) {
+        HashMap<Integer,Tipo> idTipos=new HashMap<>();
+        int i=1;
+        System.out.println("\nSeleccione el tipo:\n");
+        for(Tipo tipo:Tipo.values()) {
+            System.out.println(i+". "+tipo.toString().toUpperCase().charAt(0)+tipo.toString().substring(1));
+            idTipos.put(i,tipo);
+            i++;
+        }
+        System.out.print("\nIngrese el dígito correspondiente: ");
+        int tipoSeleccionado=entrada.nextInt();
+        entrada.nextLine();
+        while(tipoSeleccionado<1 || tipoSeleccionado>=i) {
+            System.out.print("Dígito no válido, intente nuevamente: ");
+            tipoSeleccionado=entrada.nextInt();
+            entrada.nextLine();
+        }
+        return idTipos.get(tipoSeleccionado);
     }
     public static void main(String[] args) {
         int respuesta;
@@ -140,10 +140,10 @@ public class Sistema {
             }
             switch(respuesta) {
                 case 1:
-                    contratarChef(entrada,sistema);
+                    sistema.contratarChef(entrada);
                     break;
                 case 2:
-                    agregarPlato(entrada,sistema);
+                    sistema.agregarPlato(entrada);
                     break;
                 case 3:
                     sistema.mostrarMenu();

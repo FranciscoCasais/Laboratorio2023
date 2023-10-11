@@ -1,6 +1,6 @@
 package EjerciciosInterfaces.Restaurante;
 import java.time.LocalDate;
-public class Persona {
+public abstract class Persona {
     private LocalDate fechaNacimiento;
     private String apellido,nombre;
     public Persona() {

@@ -16,4 +16,5 @@ public class Chef extends Persona {
     public void setExperienciaCulinariaPrevia(boolean experienciaCulinariaPrevia) { this.experienciaCulinariaPrevia = experienciaCulinariaPrevia; }
     public int getDni() { return dni; }
     public void setDni(int dni) { this.dni = dni; }
+    public boolean mayorDeEdad() { return LocalDate.now().getYear()-getFechaNacimiento().getYear()>18 || (LocalDate.now().getYear()-getFechaNacimiento().getYear()==18 && LocalDate.now().getMonthValue()>getFechaNacimiento().getMonthValue()) || (LocalDate.now().getMonthValue()==getFechaNacimiento().getMonthValue() && LocalDate.now().getDayOfMonth()>getFechaNacimiento().getDayOfMonth()); }
 }
