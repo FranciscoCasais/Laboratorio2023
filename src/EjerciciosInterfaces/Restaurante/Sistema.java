@@ -110,22 +110,22 @@ public class Sistema implements GestionRestaurante {
     @Override
     public void agregarPlato(Plato plato) {
         try{
-            if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("El plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.");
-            else if(menu.contains(plato)) throw new PlatoRepetidoException("El plato no pudo ser agregado porque ya está incluido en el menú.");
+            if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("\nEl plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.\n");
+            else if(menu.contains(plato)) throw new PlatoRepetidoException("\nEl plato no pudo ser agregado porque ya está incluido en el menú.\n");
             else {
                 menu.add(plato);
-                System.out.println("El plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".");
+                System.out.println("\nEl plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".\n");
             }
         } catch(ChefNoContratadoException | PlatoRepetidoException e) { System.out.println(e.getMessage()); }
     }
     @Override
     public void contratarChef(Chef chef) {
         try {
-            if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.");
-            else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("El chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
+            if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.\n");
+            else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.\n");
             else {
                 chefs.add(chef);
-                System.out.println("El chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".");
+                System.out.println("\nEl chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".\n");
             }
         } catch(ChefSinExperienciaPreviaException | ChefMenorDeEdadException e) { System.out.println(e.getMessage()); }
     }
