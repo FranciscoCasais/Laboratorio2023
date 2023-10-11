@@ -85,8 +85,7 @@ public class Sistema implements GestionRestaurante {
         contratarChef(new Chef(nombre,apellido,fechaNacimiento,experienciaCulinariaPrevia,dni));
     }
     public void mostrarMenu() {
-        for(Plato plato:menu) System.out.print("\n"+plato.toString());
-        System.out.println("\n");
+        for(Plato plato:menu) System.out.println("\n"+plato.toString());
     }
     public static Tipo seleccionarTipo(Scanner entrada) {
         HashMap<Integer,Tipo> idTipos=new HashMap<>();
@@ -110,31 +109,48 @@ public class Sistema implements GestionRestaurante {
     @Override
     public void agregarPlato(Plato plato) {
         try{
-            if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("\nEl plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.\n");
-            else if(menu.contains(plato)) throw new PlatoRepetidoException("\nEl plato no pudo ser agregado porque ya está incluido en el menú.\n");
+            if(!chefs.contains(plato.getChefACargo())) throw new ChefNoContratadoException("\nEl plato no pudo ser agregado porque el chef a cargo no se encuentra en el sistema.");
+            else if(menu.contains(plato)) throw new PlatoRepetidoException("\nEl plato no pudo ser agregado porque ya está incluido en el menú.");
             else {
                 menu.add(plato);
-                System.out.println("\nEl plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".\n");
+                System.out.println("\nEl plato \""+plato.getNombre()+"\" se agregó al menú de "+nombreRestaurante+".");
             }
         } catch(ChefNoContratadoException | PlatoRepetidoException e) { System.out.println(e.getMessage()); }
     }
     @Override
     public void contratarChef(Chef chef) {
         try {
-            if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.\n");
-            else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.\n");
+            if(!chef.hasExperienciaCulinariaPrevia()) throw new ChefSinExperienciaPreviaException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de experiencia culinaria previa.");
+            else if(!chef.mayorDeEdad()) throw new ChefMenorDeEdadException("\nEl chef no pudo ser agregado porque no cumple con el criterio de contratación de ser mayor de edad.");
             else {
                 chefs.add(chef);
-                System.out.println("\nEl chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".\n");
+                System.out.println("\nEl chef "+chef.getNombre()+" "+chef.getApellido()+" se unió al equipo de "+nombreRestaurante+".");
             }
         } catch(ChefSinExperienciaPreviaException | ChefMenorDeEdadException e) { System.out.println(e.getMessage()); }
     }
     public static void main(String[] args) {
         int respuesta;
+        HashSet<Chef> chefs=new HashSet<>();
+        HashSet<Plato> menu=new HashSet<>();
         Scanner entrada=new Scanner(System.in);
-        Sistema sistema=new Sistema(new HashSet<>(),new HashSet<>(),"Lo de Daniel");
+
+        Chef c1=new Chef("Daniel","Santi",LocalDate.of(2004,11,10),true,1);
+        Chef c2=new Chef("El","Paja",LocalDate.of(2004,11,10),true,2);
+        Chef c3=new Chef("Barbosa","Ingeniero",LocalDate.of(2004,11,10),true,3);
+        chefs.add(c1);
+        chefs.add(c2);
+        chefs.add(c3);
+
+        Plato p1=new Plato(c1,1250,"En honor a los valientes caballeros del reino de Avalon","Papas del draǵon",Tipo.ENTRADA);
+        Plato p3=new Plato(c2,3500,"La especialidad de la casa","Cazuela de quesos",Tipo.PLATOPRINCIPAL);
+        Plato p2=new Plato(c3,2000,"No apto para intolerantes a la lactosa","Torta cremosa",Tipo.POSTRE);
+        menu.add(p1);
+        menu.add(p2);
+        menu.add(p3);
+
+        Sistema sistema=new Sistema(chefs,menu,"Lo de Daniel");
         do {
-            System.out.print("Bienvenido a "+sistema.getNombreRestaurante()+"\n\n1. Contratar chef\n2. Agregar plato\n3. Ver menú\n4. Salir\n\nIngrese el dígito correspondiente: ");
+            System.out.print("\nBienvenido a "+sistema.getNombreRestaurante()+"\n\n1. Contratar chef\n2. Agregar plato\n3. Ver menú\n4. Salir\n\nIngrese el dígito correspondiente: ");
             respuesta=entrada.nextInt();
             entrada.nextLine();
             while(respuesta<1 || respuesta>4) {
